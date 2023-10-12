@@ -1,0 +1,69 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/carro">carro</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <form>
+      <h2 class="title">cadastrar carro</h2>
+
+      <h4 class="title">dados do carro</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="placa">placa</label>
+          <input type="text" name="placa" placeholder="placa" value="{{ car.placa }}">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="fYear">ano de fabricação</label>
+          <input type="text" name="fYear" placeholder="ano de fabricação" value="{{ car.fYear }}">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="mYear">ano do modelo</label>
+          <input type="text" name="mYear" placeholder="ano do modelo" value="{{ car.mYear }}">
+        </div>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="automaker">marca</label>
+          <input type="text" name="automaker" placeholder="fabricante" value="{{ car.automaker }}">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="model">modelo</label>
+          <input type="text" name="model" placeholder="modelo" value="{{ car.model }}">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="color">cor</label>
+          <input type="text" name="color" placeholder="cor" value="{{ car.color }}">
+        </div>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="capacity">cilindradas</label>
+          <input type="text" name="capacity" placeholder="cilindradas" value="{{ car.capacity }}">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="engine">quantidade de valvulas</label>
+          <input type="text" name="engine" placeholder="quantidade de valvulas" value="{{ car.engine }}">
+        </div>
+      </div>
+
+      <button class="button" (click)="salvarCar()">salvar</button>
+    </form>
+  </div>
+</main>
