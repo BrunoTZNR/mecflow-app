@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { OsComponent } from './components/os/os.component';
 import { ClientComponent } from './components/client/client.component';
 import { ClientDetailComponent } from './components/client/client-detail/client-detail.component';
 import { ClientCadastrarComponent } from './components/client/client-cadastrar/client-cadastrar.component';
@@ -17,6 +17,10 @@ import { ManufactureComponent } from './components/manufacture/manufacture.compo
 import { ManufactureCadastrarComponent } from './components/manufacture/manufacture-cadastrar/manufacture-cadastrar.component';
 import { ManufactureDetailComponent } from './components/manufacture/manufacture-detail/manufacture-detail.component';
 import { ManufactureEditComponent } from './components/manufacture/manufacture-edit/manufacture-edit.component';
+import { CarComponent } from './components/car/car.component';
+import { CarCadastrarComponent } from './components/car/car-cadastrar/car-cadastrar.component';
+import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
+import { CarEditComponent } from './components/car/car-edit/car-edit.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -34,7 +38,11 @@ const routes: Routes = [
   { path: 'servico', component: ManufactureComponent },
   { path: 'servico/cadastrar', component: ManufactureCadastrarComponent },
   { path: 'servico/:id', component: ManufactureDetailComponent },
-  { path: 'servico/:id/editar', component: ManufactureEditComponent }
+  { path: 'servico/:id/editar', component: ManufactureEditComponent },
+  { path: 'carro', component: CarComponent },
+  { path: 'carro/cadastrar', component: CarCadastrarComponent },
+  { path: 'carro/:id', component: CarDetailComponent },
+  { path: 'carro/:id/editar', component: CarEditComponent }
 ];
 
 @NgModule({
