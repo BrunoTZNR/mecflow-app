@@ -13,6 +13,10 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 import { ProductCadastrarComponent } from './components/product/product-cadastrar/product-cadastrar.component';
+import { ManufactureComponent } from './components/manufacture/manufacture.component';
+import { ManufactureCadastrarComponent } from './components/manufacture/manufacture-cadastrar/manufacture-cadastrar.component';
+import { ManufactureDetailComponent } from './components/manufacture/manufacture-detail/manufacture-detail.component';
+import { ManufactureEditComponent } from './components/manufacture/manufacture-edit/manufacture-edit.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -26,7 +30,11 @@ const routes: Routes = [
   { path: 'produto', component: ProductComponent },
   { path: 'produto/cadastrar', component: ProductCadastrarComponent },
   { path: 'produto/:id', component: ProductDetailComponent },
-  { path: 'produto/:id/editar', component: ProductEditComponent }
+  { path: 'produto/:id/editar', component: ProductEditComponent },
+  { path: 'servico', component: ManufactureComponent },
+  { path: 'servico/cadastrar', component: ManufactureCadastrarComponent },
+  { path: 'servico/:id', component: ManufactureDetailComponent },
+  { path: 'servico/:id/editar', component: ManufactureEditComponent }
 ];
 
 @NgModule({
