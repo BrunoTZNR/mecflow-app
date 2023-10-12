@@ -15,7 +15,8 @@ export class CarService {
   getCars(): Car[] {
     return [
       {
-        id: 'AAA9999',
+        id: 1,
+        placa: 'AAA9999',
         model: 'doblo adventure',
         engine: 16,
         comb: 'flex',
@@ -26,7 +27,8 @@ export class CarService {
         color: 'prata'
       },
       {
-        id: 'BBB0000',
+        id: 2,
+        placa: 'BBB0000',
         model: 'j2',
         engine: 16,
         comb: 'gasolina',
@@ -37,7 +39,8 @@ export class CarService {
         color: 'grena'
       },
       {
-        id: 'CCC9876',
+        id: 3,
+        placa: 'CCC9876',
         model: 'gol g5',
         engine: 8,
         comb: 'flex',
@@ -48,7 +51,8 @@ export class CarService {
         color: 'prata'
       },
       {
-        id: 'FVC6669',
+        id: 4,
+        placa: 'FVC6669',
         model: 'uno',
         engine: 8,
         comb: 'flex',

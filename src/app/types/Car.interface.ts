@@ -1,5 +1,6 @@
 export interface Car {
-  id: string,
+  id: number,
+  placa: string,
   model: string,
   engine: number,
   comb: string,

@@ -22,6 +22,10 @@ import { ManufactureComponent } from './components/manufacture/manufacture.compo
 import { ManufactureCadastrarComponent } from './components/manufacture/manufacture-cadastrar/manufacture-cadastrar.component';
 import { ManufactureDetailComponent } from './components/manufacture/manufacture-detail/manufacture-detail.component';
 import { ManufactureEditComponent } from './components/manufacture/manufacture-edit/manufacture-edit.component';
+import { CarComponent } from './components/car/car.component';
+import { CarCadastrarComponent } from './components/car/car-cadastrar/car-cadastrar.component';
+import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
+import { CarEditComponent } from './components/car/car-edit/car-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { ManufactureEditComponent } from './components/manufacture/manufacture-e
     ManufactureComponent,
     ManufactureCadastrarComponent,
     ManufactureDetailComponent,
-    ManufactureEditComponent
+    ManufactureEditComponent,
+    CarComponent,
+    CarCadastrarComponent,
+    CarDetailComponent,
+    CarEditComponent
   ],
   imports: [
     BrowserModule,
