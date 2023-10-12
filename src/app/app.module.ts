@@ -18,6 +18,10 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { ProductCadastrarComponent } from './components/product/product-cadastrar/product-cadastrar.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
+import { ManufactureComponent } from './components/manufacture/manufacture.component';
+import { ManufactureCadastrarComponent } from './components/manufacture/manufacture-cadastrar/manufacture-cadastrar.component';
+import { ManufactureDetailComponent } from './components/manufacture/manufacture-detail/manufacture-detail.component';
+import { ManufactureEditComponent } from './components/manufacture/manufacture-edit/manufacture-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { ProductEditComponent } from './components/product/product-edit/product-
     ProductComponent,
     ProductDetailComponent,
     ProductCadastrarComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    ManufactureComponent,
+    ManufactureCadastrarComponent,
+    ManufactureDetailComponent,
+    ManufactureEditComponent
   ],
   imports: [
     BrowserModule,
