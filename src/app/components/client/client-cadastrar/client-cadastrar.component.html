@@ -1,0 +1,81 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/cliente">cliente</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <form>
+      <h2 class="title">cadastrar cliente</h2>
+
+      <h4 class="title">dados pessoais</h4>
+
+      <div class="name-wrapper">
+        <div class="label-wrapper">
+          <label for="fname">nome</label>
+          <input type="text" name="fname">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="lname">sobrenome</label>
+          <input type="text" name="lname">
+        </div>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="cpf">cpf</label>
+        <input type="text" name="cpf">
+      </div>
+
+      <div class="label-wrapper">
+        <label for="dt-nasc">data de nascimento</label>
+        <input type="date" name="dt-nasc">
+      </div>
+
+      <h4 class="title">dados de contato</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="phone">telefone</label>
+          <input type="text" name="phone" placeholder="telefone">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="whatsapp">whatsapp</label>
+          <input type="text" name="whatsapp" placeholder="whatsapp">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="email">email</label>
+          <input type="email" name="email" placeholder="email">
+        </div>
+      </div>
+
+      <h4 class="title">dados de endereço</h4>
+
+      <div class="label-wrapper">
+        <label for="cep">cep</label>
+        <input type="text" name="cep">
+      </div>
+
+      <div class="label-wrapper">
+        <label for="rua">rua</label>
+        <input type="text" name="rua">
+      </div>
+
+      <div class="label-wrapper">
+        <label for="casa">casa</label>
+        <input type="text" name="casa">
+      </div>
+
+      <button class="button" (click)="cadastrarCliente()">cadastrar</button>
+    </form>
+  </div>
+</main>

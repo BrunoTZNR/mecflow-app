@@ -1,0 +1,86 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/cliente">cliente</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <section>
+      <h2 class="title">cadastrar cliente</h2>
+
+      <h4 class="title">dados pessoais</h4>
+
+      <div class="name-wrapper">
+        <div class="label-wrapper">
+          <label for="fname">nome</label>
+          <p class="input" name="fname">{{ cliente.fname }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="lname">sobrenome</label>
+          <p class="input" name="lname">{{ cliente.lname }}</p>
+        </div>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="cpf">cpf</label>
+        <p class="input" name="cpf">{{ cliente.cpf }}</p>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="dtNasc">data de nascimento</label>
+        <p class="input" name="dtNasc">{{ cliente.dtNasc }}</p>
+      </div>
+
+      <h4 class="title">dados de contato</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="phone">telefone</label>
+          <p class="input" name="phone">{{ cliente.phone }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="whatsapp">whatsapp</label>
+          <p class="input" name="whatsapp">{{ cliente.whatsapp }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="email">email</label>
+          <p class="input" name="email">{{ cliente.email }}</p>
+        </div>
+      </div>
+
+      <h4 class="title">dados de endereço</h4>
+
+      <div class="label-wrapper">
+        <label for="cep">cep</label>
+        <p class="input" name="cep">{{ cliente.cep }}</p>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="rua">rua</label>
+        <p class="input" name="rua">{{ cliente.rua }}</p>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="casa">casa</label>
+        <p class="input" name="casa">{{ cliente.casa }}</p>
+      </div>
+
+      <div class="button-wrapper">
+        <button class="button" (click)="editarCliente()">editar</button>
+        <button class="button" (click)="deletarCliente()">deletar</button>
+      </div>
+
+    </section>
+  </div>
+</main>
+

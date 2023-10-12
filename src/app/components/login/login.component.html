@@ -1,17 +1,17 @@
 <main>
   <div class="login-container">
-    <form class="login-form">
+    <form class="login-form" [formGroup]="formGroup">
       <div class="form-item user-wrapper">
         <label for="email">email</label>
-        <input type="email" name="email" id="">
+        <input type="email" name="email" formControlName="email">
       </div>
 
       <div class="form-item pass-wrapper">
         <label for="pass">senha</label>
-        <input type="password" name="pass" id="">
+        <input type="password" name="pass" formControlName="pass">
       </div>
 
-      <button class="login-button">entrar</button>
+      <button class="button" (click)="entrar()">entrar</button>
     </form>
   </div>
 </main>

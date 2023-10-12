@@ -1,9 +1,7 @@
 main {
-  width: 100%;
-  height: 100vh;
   display: flex;
-
-  background: var(--dark-2);
+  justify-content: flex-end;
+  position: relative;
 }
 
 aside {
@@ -13,34 +11,15 @@ aside {
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 2;
+  left: 0;
+  position: fixed;
 
   background: var(--dark-3);
-
-  h1 {
-    color: var(--light-4);
-    text-transform: uppercase;
-    text-align: center;
-    margin: 12px 0;
-  }
 
   ul {
     display: flex;
     flex-flow: column nowrap;
     gap: .5rem;
-
-    li {
-      text-align: center;
-      padding: 8px;
-      text-transform: uppercase;
-      color: var(--light-4);
-      transition: .25s;
-
-      &:hover {
-        color: var(--light-1);
-        background: var(--light-4);
-        font-weight: 500;
-      }
-    }
   }
 
   p {
@@ -63,6 +42,9 @@ aside {
   flex-wrap: wrap;
   gap: 2rem;
   padding: 1rem;
+  overflow-y: scroll;
+
+  outline: 1px solid red;
 
   .componentes-card {
     width: 300px;
