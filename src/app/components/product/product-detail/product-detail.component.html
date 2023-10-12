@@ -1,1 +1,53 @@
-<p>product-detail works!</p>
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/produto">produto</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <section>
+      <h2 class="title">cadastrar produto</h2>
+
+      <h4 class="title">dados do produto</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="cod">código</label>
+          <p class="input" type="text" name="cod">{{ produto.cod }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="stock">estoque</label>
+          <p class="input" type="text" name="stock">{{ produto.stock }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="ncm">ncm</label>
+          <p class="input" type="text" name="ncm">{{ produto.ncm }}</p>
+        </div>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="desc">descrição</label>
+        <p class="input" type="text" name="desc">{{ produto.desc }}</p>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="price">preço</label>
+        <p class="input" type="text" name="price">{{ produto.price }}</p>
+      </div>
+
+      <div class="button-wrapper">
+        <button class="button" (click)="editarProduto()">editar</button>
+        <button class="button" (click)="deletarProduto()">deletar</button>
+      </div>
+    </section>
+  </div>
+</main>
