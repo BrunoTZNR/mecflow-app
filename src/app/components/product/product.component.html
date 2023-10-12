@@ -1,0 +1,39 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <a class="button" routerLink="/home">home</a>
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <div class="client-header">
+      <h2 class="title">Produtos</h2>
+
+      <a class="button" [routerLink]="['cadastrar']">cadastrar</a>
+    </div>
+
+    <div class="client-table">
+      <table>
+        <thead>
+          <tr>
+            <td>código</td>
+            <td>descrição</td>
+            <td>estoque</td>
+            <td>preço</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let prod of products;">
+            <td>{{ prod.cod }}</td>
+            <td><a routerLink="/produto/{{ prod.id }}">{{ prod.desc }}</a></td>
+            <td>{{ prod.stock }}</td>
+            <td>{{ 'R$ ' + prod.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
