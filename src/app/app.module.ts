@@ -12,6 +12,8 @@ import { ClientComponent } from './components/client/client.component';
 import { ClientCadastrarComponent } from './components/client/client-cadastrar/client-cadastrar.component';
 import { ClientEditComponent } from './components/client/client-edit/client-edit.component';
 import { ClientService } from './services/client.service';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeDetailComponent } from './components/employee/employee-detail/employee-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ClientService } from './services/client.service';
     ClientComponent,
     ClientDetailComponent,
     ClientCadastrarComponent,
-    ClientEditComponent
+    ClientEditComponent,
+    EmployeeComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,

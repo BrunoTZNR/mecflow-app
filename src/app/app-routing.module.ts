@@ -7,6 +7,8 @@ import { ClientComponent } from './components/client/client.component';
 import { ClientDetailComponent } from './components/client/client-detail/client-detail.component';
 import { ClientCadastrarComponent } from './components/client/client-cadastrar/client-cadastrar.component';
 import { ClientEditComponent } from './components/client/client-edit/client-edit.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeDetailComponent } from './components/employee/employee-detail/employee-detail.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'cliente/cadastrar', component: ClientCadastrarComponent },
   { path: 'cliente/:id', component: ClientDetailComponent },
   { path: 'cliente/:id/editar', component: ClientEditComponent },
+  { path: 'funcionario', component: EmployeeComponent },
+  { path: 'funcionario/:id', component: EmployeeDetailComponent },
   { path: 'os', component: OsComponent }
 ];
 
