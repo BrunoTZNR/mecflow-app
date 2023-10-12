@@ -1,1 +1,33 @@
-<p>manufacture-edit works!</p>
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/servico">serviço</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <form>
+      <h2 class="title">cadastrar serviço</h2>
+
+      <h4 class="title">dados do serviço</h4>
+
+      <div class="label-wrapper">
+        <label for="desc">descrição</label>
+        <input type="text" name="desc" value="{{ servico.desc }}">
+      </div>
+
+      <div class="label-wrapper">
+        <label for="amount">preço</label>
+        <input type="text" name="amount" value="{{ servico.amount }}">
+      </div>
+
+      <button class="button" (click)="salvarServico()">salvar</button>
+    </form>
+  </div>
+</main>

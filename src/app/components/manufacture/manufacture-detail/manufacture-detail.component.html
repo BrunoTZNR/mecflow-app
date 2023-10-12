@@ -1,1 +1,37 @@
-<p>manufacture-detail works!</p>
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/servico">serviço</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <section>
+      <h2 class="title">cadastrar serviço</h2>
+
+      <h4 class="title">dados do serviço</h4>
+
+      <div class="label-wrapper">
+        <label for="desc">descrição</label>
+        <p class="input" type="text" name="desc">{{ servico.desc }}</p>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="amount">preço</label>
+        <p class="input" type="text" name="amount">{{ servico.amount }}</p>
+      </div>
+
+      <div class="button-wrapper">
+        <button class="button" (click)="editarServico()">editar</button>
+        <button class="button" (click)="deletarServico()">deletar</button>
+      </div>
+
+    </section>
+  </div>
+</main>

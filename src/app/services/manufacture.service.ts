@@ -17,30 +17,22 @@ export class ManufactureService {
       {
         id: 1,
         desc: 'Aquele serviço',
-        amount: 50.00,
-        idEmployee: 1,
-        nameEmployee: 'Bruno'
+        amount: 50.00
       },
       {
         id: 2,
         desc: 'Serviços diversos',
-        amount: 150.00,
-        idEmployee: 4,
-        nameEmployee: 'Sérgio'
+        amount: 150.00
       },
       {
         id: 3,
         desc: 'Alinhamento',
-        amount: 60.00,
-        idEmployee: 1,
-        nameEmployee: 'Bruno'
+        amount: 60.00
       },
       {
         id: 4,
         desc: 'Balanceamento',
-        amount: 60.00,
-        idEmployee: 1,
-        nameEmployee: 'Bruno'
+        amount: 60.00
       },
     ]
   }

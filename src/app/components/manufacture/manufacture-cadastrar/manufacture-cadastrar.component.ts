@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ManufactureCadastrarComponent {
 
+  cadastrarServico(): void {
+    //chamar api post
+  }
 }
