@@ -9,6 +9,10 @@ import { ClientCadastrarComponent } from './components/client/client-cadastrar/c
 import { ClientEditComponent } from './components/client/client-edit/client-edit.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeDetailComponent } from './components/employee/employee-detail/employee-detail.component';
+import { ProductComponent } from './components/product/product.component';
+import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
+import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
+import { ProductCadastrarComponent } from './components/product/product-cadastrar/product-cadastrar.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,7 +23,10 @@ const routes: Routes = [
   { path: 'cliente/:id/editar', component: ClientEditComponent },
   { path: 'funcionario', component: EmployeeComponent },
   { path: 'funcionario/:id', component: EmployeeDetailComponent },
-  { path: 'os', component: OsComponent }
+  { path: 'produto', component: ProductComponent },
+  { path: 'produto/cadastrar', component: ProductCadastrarComponent },
+  { path: 'produto/:id', component: ProductDetailComponent },
+  { path: 'produto/:id/editar', component: ProductEditComponent }
 ];
 
 @NgModule({

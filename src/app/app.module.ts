@@ -14,6 +14,10 @@ import { ClientEditComponent } from './components/client/client-edit/client-edit
 import { ClientService } from './services/client.service';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeDetailComponent } from './components/employee/employee-detail/employee-detail.component';
+import { ProductComponent } from './components/product/product.component';
+import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
+import { ProductCadastrarComponent } from './components/product/product-cadastrar/product-cadastrar.component';
+import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { EmployeeDetailComponent } from './components/employee/employee-detail/e
     ClientCadastrarComponent,
     ClientEditComponent,
     EmployeeComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    ProductComponent,
+    ProductDetailComponent,
+    ProductCadastrarComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
