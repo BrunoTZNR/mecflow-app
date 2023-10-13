@@ -26,6 +26,10 @@ import { CarComponent } from './components/car/car.component';
 import { CarCadastrarComponent } from './components/car/car-cadastrar/car-cadastrar.component';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
 import { CarEditComponent } from './components/car/car-edit/car-edit.component';
+import { AdvanceComponent } from './components/advance/advance.component';
+import { AdvanceCadastrarComponent } from './components/advance/advance-cadastrar/advance-cadastrar.component';
+import { AdvanceEditComponent } from './components/advance/advance-edit/advance-edit.component';
+import { AdvanceDetailComponent } from './components/advance/advance-detail/advance-detail.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { CarEditComponent } from './components/car/car-edit/car-edit.component';
     CarComponent,
     CarCadastrarComponent,
     CarDetailComponent,
-    CarEditComponent
+    CarEditComponent,
+    AdvanceComponent,
+    AdvanceCadastrarComponent,
+    AdvanceEditComponent,
+    AdvanceDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,10 @@ import { CarComponent } from './components/car/car.component';
 import { CarCadastrarComponent } from './components/car/car-cadastrar/car-cadastrar.component';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
 import { CarEditComponent } from './components/car/car-edit/car-edit.component';
+import { AdvanceComponent } from './components/advance/advance.component';
+import { AdvanceCadastrarComponent } from './components/advance/advance-cadastrar/advance-cadastrar.component';
+import { AdvanceDetailComponent } from './components/advance/advance-detail/advance-detail.component';
+import { AdvanceEditComponent } from './components/advance/advance-edit/advance-edit.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -42,7 +46,11 @@ const routes: Routes = [
   { path: 'carro', component: CarComponent },
   { path: 'carro/cadastrar', component: CarCadastrarComponent },
   { path: 'carro/:id', component: CarDetailComponent },
-  { path: 'carro/:id/editar', component: CarEditComponent }
+  { path: 'carro/:id/editar', component: CarEditComponent },
+  { path: 'adiantamento', component: AdvanceComponent },
+  { path: 'adiantamento/cadastrar', component: AdvanceCadastrarComponent },
+  { path: 'adiantamento/:id', component: AdvanceDetailComponent },
+  { path: 'adiantamento/:id/editar', component: AdvanceEditComponent }
 ];
 
 @NgModule({
