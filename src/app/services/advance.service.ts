@@ -18,17 +18,15 @@ export class AdvanceService {
         id: 1,
         date: '12/10/2023',
         amount: 100,
-        idEmployee: 1,
-        nameEmployee: 'Bruno',
-        status: 'pago'
+        idEmployee: 3,
+        nameEmployee: 'Bruno'
       },
       {
         id: 2,
         date: '01/10/2023',
         amount: 200,
         idEmployee: 1,
-        nameEmployee: 'Bruno',
-        status: 'pago'
+        nameEmployee: 'Bruno'
       }
     ]
   }

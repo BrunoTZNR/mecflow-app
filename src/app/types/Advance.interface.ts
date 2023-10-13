@@ -3,6 +3,5 @@ export interface Advance {
   date: string
   amount: number,
   idEmployee: number,
-  nameEmployee: string,
-  status: string
+  nameEmployee: string
 }
