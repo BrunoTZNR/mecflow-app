@@ -1,0 +1,48 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/adiantamento">adiantamento</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <section>
+      <h2 class="title">cadastrar adiantamento</h2>
+
+      <h4 class="title">dados do funcionario</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="nameEmployee">Funcionario</label>
+          <p class="input" type="text" name="nameEmployee" id="nameEmployee">{{ advance.nameEmployee }}</p>
+        </div>
+      </div>
+
+      <h4 class="title">dados do adiantamento</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="date">data</label>
+          <p class="input" type="date" name="date" id="date">{{ advance.date }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="amount">valor</label>
+          <p class="input" type="text" name="amount" id="amount" placeholder="valor">{{ advance.amount }}</p>
+        </div>
+      </div>
+
+      <div class="button-wrapper">
+        <button class="button" (click)="editarAdvance()">editar</button>
+        <button class="button" (click)="deletarAdvance()">deletar</button>
+      </div>
+
+    </section>
+  </div>
+</main>

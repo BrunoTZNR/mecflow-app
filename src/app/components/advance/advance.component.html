@@ -1,0 +1,39 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <a class="button" routerLink="/home">home</a>
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <div class="client-header">
+      <h2 class="title">adiantamentos</h2>
+
+      <a class="button" [routerLink]="['cadastrar']">cadastrar</a>
+    </div>
+
+    <div class="client-table">
+      <table>
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>funcionario</td>
+            <td>data</td>
+            <td>valor</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let ad of advances;" (click)="detalheAdvance(ad.id)">
+            <td>{{ ad.id }}</td>
+            <td>{{ ad.nameEmployee }}</td>
+            <td>{{ ad.date }}</td>
+            <td>{{ 'R$ ' + ad.amount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

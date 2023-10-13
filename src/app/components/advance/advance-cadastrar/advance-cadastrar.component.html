@@ -1,0 +1,47 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/adiantamento">adiantamento</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <form>
+      <h2 class="title">cadastrar adiantamento</h2>
+
+      <h4 class="title">dados do funcionario</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="employees">funcionário</label>
+          <select class="input" name="employees" id="employees">
+            <option value="" selected disabled></option>
+            <option *ngFor="let emp of employees" value="{{ emp.id }}">{{ emp.fname }}</option>
+          </select>
+        </div>
+      </div>
+
+      <h4 class="title">dados do adiantamento</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="date">data</label>
+          <input type="date" name="date" id="date">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="amount">valor</label>
+          <input type="text" name="amount" id="amount" placeholder="valor">
+        </div>
+      </div>
+
+      <button class="button" (click)="cadastrarAdvance()">cadastrar</button>
+    </form>
+  </div>
+</main>
