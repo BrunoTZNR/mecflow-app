@@ -16,8 +16,7 @@ export class AdvanceService {
     return [
       {
         id: 1,
-        dtIn: '12/10/2023',
-        dtOut: '12/10/2023',
+        date: '12/10/2023',
         amount: 100,
         idEmployee: 1,
         nameEmployee: 'Bruno',
@@ -25,8 +24,7 @@ export class AdvanceService {
       },
       {
         id: 2,
-        dtIn: '01/10/2023',
-        dtOut: '01/10/2023',
+        date: '01/10/2023',
         amount: 200,
         idEmployee: 1,
         nameEmployee: 'Bruno',

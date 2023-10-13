@@ -1,7 +1,6 @@
 export interface Advance {
   id?: number,
-  dtIn: string,
-  dtOut: string,
+  date: string
   amount: number,
   idEmployee: number,
   nameEmployee: string,
