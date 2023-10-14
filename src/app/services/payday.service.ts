@@ -18,23 +18,21 @@ export class PaydayService {
         id: 1,
         dtIn: '01/10/2023',
         dtOut: '15/10/2023',
-        amount: 600.00,
+        amount: 665.00,
         amountCom: 95,
         amountAd: 30,
         idEmployee: 1,
-        nameEmployee: 'Bruno',
-        status: 'pendente'
+        nameEmployee: 'Bruno'
       },
       {
-        id: 1,
+        id: 2,
         dtIn: '15/09/2023',
         dtOut: '30/09/2023',
-        amount: 600.00,
+        amount: 900.00,
         amountCom: 300,
         amountAd: 0,
         idEmployee: 1,
-        nameEmployee: 'Bruno',
-        status: 'pago'
+        nameEmployee: 'Bruno'
       }
     ]
   }

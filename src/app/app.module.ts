@@ -30,6 +30,10 @@ import { AdvanceComponent } from './components/advance/advance.component';
 import { AdvanceCadastrarComponent } from './components/advance/advance-cadastrar/advance-cadastrar.component';
 import { AdvanceEditComponent } from './components/advance/advance-edit/advance-edit.component';
 import { AdvanceDetailComponent } from './components/advance/advance-detail/advance-detail.component';
+import { PaydayComponent } from './components/payday/payday.component';
+import { PaydayCadastrarComponent } from './components/payday/payday-cadastrar/payday-cadastrar.component';
+import { PaydayEditComponent } from './components/payday/payday-edit/payday-edit.component';
+import { PaydayDetailComponent } from './components/payday/payday-detail/payday-detail.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { AdvanceDetailComponent } from './components/advance/advance-detail/adva
     AdvanceComponent,
     AdvanceCadastrarComponent,
     AdvanceEditComponent,
-    AdvanceDetailComponent
+    AdvanceDetailComponent,
+    PaydayComponent,
+    PaydayCadastrarComponent,
+    PaydayEditComponent,
+    PaydayDetailComponent
   ],
   imports: [
     BrowserModule,

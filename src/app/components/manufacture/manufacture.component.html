@@ -25,9 +25,9 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let sv of servicos;">
+          <tr *ngFor="let sv of servicos;" (click)="detalheServico(sv.id)">
             <td>{{ sv.id }}</td>
-            <td><a routerLink="/servico/{{ sv.id }}">{{ sv.desc }}</a></td>
+            <td>{{ sv.desc }}</td>
             <td>{{ 'R$ ' + sv.amount }}</td>
           </tr>
         </tbody>

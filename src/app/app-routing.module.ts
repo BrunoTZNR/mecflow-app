@@ -25,6 +25,10 @@ import { AdvanceComponent } from './components/advance/advance.component';
 import { AdvanceCadastrarComponent } from './components/advance/advance-cadastrar/advance-cadastrar.component';
 import { AdvanceDetailComponent } from './components/advance/advance-detail/advance-detail.component';
 import { AdvanceEditComponent } from './components/advance/advance-edit/advance-edit.component';
+import { PaydayComponent } from './components/payday/payday.component';
+import { PaydayCadastrarComponent } from './components/payday/payday-cadastrar/payday-cadastrar.component';
+import { PaydayDetailComponent } from './components/payday/payday-detail/payday-detail.component';
+import { PaydayEditComponent } from './components/payday/payday-edit/payday-edit.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -50,7 +54,11 @@ const routes: Routes = [
   { path: 'adiantamento', component: AdvanceComponent },
   { path: 'adiantamento/cadastrar', component: AdvanceCadastrarComponent },
   { path: 'adiantamento/:id', component: AdvanceDetailComponent },
-  { path: 'adiantamento/:id/editar', component: AdvanceEditComponent }
+  { path: 'adiantamento/:id/editar', component: AdvanceEditComponent },
+  { path: 'pagamento', component: PaydayComponent },
+  { path: 'pagamento/cadastrar', component: PaydayCadastrarComponent },
+  { path: 'pagamento/:id', component: PaydayDetailComponent },
+  { path: 'pagamento/:id/editar', component: PaydayEditComponent }
 ];
 
 @NgModule({

@@ -25,9 +25,9 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let cli of clients;">
+          <tr *ngFor="let cli of clients;" (click)="detalheClient(cli.id)">
             <td>{{ cli.id }}</td>
-            <td><a routerLink="/cliente/{{ cli.id }}">{{ cli.fname + ' ' +  cli.lname}}</a></td>
+            <td>{{ cli.fname + ' ' +  cli.lname}}</td>
             <td>{{ cli.dtNasc }}</td>
           </tr>
         </tbody>

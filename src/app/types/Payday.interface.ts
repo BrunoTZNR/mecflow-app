@@ -6,6 +6,5 @@ export interface Payday {
   amountCom: number,
   amountAd: number,
   idEmployee: number,
-  nameEmployee: string,
-  status: string
+  nameEmployee: string
 }

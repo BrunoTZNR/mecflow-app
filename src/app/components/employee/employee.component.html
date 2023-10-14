@@ -23,9 +23,9 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let func of funcionarios;">
+          <tr *ngFor="let func of funcionarios;" (click)="detalheEmployee(func.id)">
             <td>{{ func.id }}</td>
-            <td><a routerLink="/funcionario/{{ func.id }}">{{ func.fname + ' ' +  func.lname}}</a></td>
+            <td>{{ func.fname + ' ' +  func.lname}}</td>
             <td>{{ func.dtNasc }}</td>
           </tr>
         </tbody>
