@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { OsComponent } from './components/os/os.component';
-import { NgSelectOption, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ClientDetailComponent } from './components/client/client-detail/client-detail.component';
 import { ClientComponent } from './components/client/client.component';
 import { ClientCadastrarComponent } from './components/client/client-cadastrar/client-cadastrar.component';
