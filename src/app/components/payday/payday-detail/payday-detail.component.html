@@ -1,0 +1,65 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/pagamento">pagamento</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <section>
+      <h2 class="title">cadastrar pagamento</h2>
+
+      <h4 class="title">dados do funcionario</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="employee">funcionário</label>
+          <p class="input" name="employee" id="employee">{{ payday.nameEmployee }}</p>
+        </div>
+      </div>
+
+      <h4 class="title">dados do pagamento</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="dtIn">data início</label>
+          <p class="input" name="dtIn" id="dtIn">{{ payday.dtIn }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="dtOut">data fim</label>
+          <p class="input" name="dtOut" id="dtOut">{{ payday.dtOut }}</p>
+        </div>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="amountCom">total de comissões</label>
+          <p class="input" name="amountCom" id="amountCom">{{ payday.amountCom }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="amountAd">total de adiantamentos</label>
+          <p class="input" name="amountAd" id="amountAd">{{ payday.amountAd }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="amount">total do pagamento</label>
+          <p class="input" name="amount" id="amount">{{ payday.amount }}</p>
+        </div>
+      </div>
+
+      <div class="button-wrapper">
+        <button class="button" (click)="editarPayday()">editar</button>
+        <button class="button" (click)="deletarPayday()">deletar</button>
+      </div>
+
+    </section>
+  </div>
+</main>

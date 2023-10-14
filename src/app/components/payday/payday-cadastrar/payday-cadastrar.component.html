@@ -1,0 +1,64 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/pagamento">pagamento</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <form>
+      <h2 class="title">cadastrar pagamento</h2>
+
+      <h4 class="title">dados do funcionario</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="employees">funcionário</label>
+          <select class="input" name="employees" id="employees">
+            <option value="" selected disabled></option>
+            <option *ngFor="let emp of employees" value="{{ emp.id }}">{{ emp.fname }}</option>
+          </select>
+        </div>
+      </div>
+
+      <h4 class="title">dados do pagamento</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="dtIn">data início</label>
+          <input type="date" name="dtIn" id="dtIn">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="dtOut">data fim</label>
+          <input type="date" name="dtOut" id="dtOut">
+        </div>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="amountCom">total de comissões</label>
+          <input type="text" name="amountCom" id="amountCom">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="amountAd">total de adiantamentos</label>
+          <input type="text" name="amountAd" id="amountAd">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="amount">total do pagamento</label>
+          <input type="text" name="amount" id="amount">
+        </div>
+      </div>
+
+      <button class="button" (click)="cadastrarPayday()">cadastrar</button>
+    </form>
+  </div>
+</main>
