@@ -29,6 +29,10 @@ import { PaydayComponent } from './components/payday/payday.component';
 import { PaydayCadastrarComponent } from './components/payday/payday-cadastrar/payday-cadastrar.component';
 import { PaydayDetailComponent } from './components/payday/payday-detail/payday-detail.component';
 import { PaydayEditComponent } from './components/payday/payday-edit/payday-edit.component';
+import { OsComponent } from './components/os/os.component';
+import { OsCadastrarComponent } from './components/os/os-cadastrar/os-cadastrar.component';
+import { OsDetailComponent } from './components/os/os-detail/os-detail.component';
+import { OsEditComponent } from './components/os/os-edit/os-edit.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -58,7 +62,11 @@ const routes: Routes = [
   { path: 'pagamento', component: PaydayComponent },
   { path: 'pagamento/cadastrar', component: PaydayCadastrarComponent },
   { path: 'pagamento/:id', component: PaydayDetailComponent },
-  { path: 'pagamento/:id/editar', component: PaydayEditComponent }
+  { path: 'pagamento/:id/editar', component: PaydayEditComponent },
+  { path: 'os', component: OsComponent },
+  { path: 'os/cadastrar', component: OsCadastrarComponent },
+  { path: 'os/:id', component: OsDetailComponent },
+  { path: 'os/:id/editar', component: OsEditComponent }
 ];
 
 @NgModule({

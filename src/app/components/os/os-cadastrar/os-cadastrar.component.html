@@ -1,0 +1,69 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/os">ordem de serviço</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <form>
+      <h2 class="title">cadastrar ordem de serviço</h2>
+
+      <h4 class="title">dados do cliente</h4>
+
+      <div class="label-wrapper" >
+        <label for="client">cliente</label>
+        <select class="input" name="client" id="client">
+          <option disabled selected></option>
+          <option *ngFor="let cli of clients" value="{{ cli.id }}">
+            {{ cli.fname + ' ' + cli.lname}}
+          </option>
+        </select>
+      </div>
+
+      <h4 class="title">dados do carro</h4>
+
+      <div class="label-wrapper">
+        <label for="car">carro</label>
+        <select class="input" name="car" id="car">
+          <option disabled selected></option>
+          <option *ngFor="let car of cars" value="{{ car.id }}">
+            {{ car.placa + ' / ' + car.automaker + ' - ' + car.model}}
+          </option>
+        </select>
+      </div>
+
+      <h4 class="title">dados da ordem de serviço</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="dtIn">data de entrada</label>
+          <input type="date" name="dtIn">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="dtOut">data de saida</label>
+          <input type="date" name="dtOut">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="status">status</label>
+          <select class="input" name="status" id="status">
+            <option disabled selected></option>
+            <option value="pendente">pendente</option>
+            <option value="pago">pago</option>
+            <option value="cancelado">cancelado</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="button" (click)="cadastrarOs()">cadastrar</button>
+    </form>
+  </div>
+</main>

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { OsComponent } from './components/os/os.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClientDetailComponent } from './components/client/client-detail/client-detail.component';
 import { ClientComponent } from './components/client/client.component';
@@ -34,13 +33,16 @@ import { PaydayComponent } from './components/payday/payday.component';
 import { PaydayCadastrarComponent } from './components/payday/payday-cadastrar/payday-cadastrar.component';
 import { PaydayEditComponent } from './components/payday/payday-edit/payday-edit.component';
 import { PaydayDetailComponent } from './components/payday/payday-detail/payday-detail.component';
+import { OsComponent } from './components/os/os.component';
+import { OsCadastrarComponent } from './components/os/os-cadastrar/os-cadastrar.component';
+import { OsDetailComponent } from './components/os/os-detail/os-detail.component';
+import { OsEditComponent } from './components/os/os-edit/os-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    OsComponent,
     ClientComponent,
     ClientDetailComponent,
     ClientCadastrarComponent,
@@ -66,7 +68,11 @@ import { PaydayDetailComponent } from './components/payday/payday-detail/payday-
     PaydayComponent,
     PaydayCadastrarComponent,
     PaydayEditComponent,
-    PaydayDetailComponent
+    PaydayDetailComponent,
+    OsComponent,
+    OsCadastrarComponent,
+    OsDetailComponent,
+    OsEditComponent
   ],
   imports: [
     BrowserModule,
