@@ -13,7 +13,7 @@
 
   <div class="client-wrapper">
     <section>
-      <h2 class="title">cadastrar ordem de serviço</h2>
+      <h2 class="title">detalhe da ordem de serviço</h2>
 
       <h4 class="title">dados do cliente</h4>
 
@@ -56,7 +56,7 @@
               {{ osP.desc }} - {{ osP.qtdProducts }} - {{ osP.totalAmount | currency: 'BRL'}}
             </p>
           </div>
-          <button class="button">adicionar produto</button>
+          <button class="button" (click)="cadastrarProdutoOs()">adicionar produto</button>
         </div>
 
         <div class="label-wrapper">
@@ -66,7 +66,7 @@
               {{ osS.desc }} - {{ osS.amount | currency: 'BRL'}}
             </p>
           </div>
-          <button class="button">adicionar serviço</button>
+          <button class="button" (click)="cadastrarServicoOs()">adicionar serviço</button>
         </div>
 
         <div class="label-wrapper">
@@ -76,7 +76,7 @@
               {{ osC.typePay }} - {{ osC.amount | currency: 'BRL'}} - {{ osC.dtPay | date: 'dd/MM/yyyy' }}
             </p>
           </div>
-          <button class="button">adicionar produto</button>
+          <button class="button" (click)="cadastrarPagamentoOs()">adicionar pagamento</button>
         </div>
       </div>
 

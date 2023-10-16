@@ -1,5 +1,5 @@
 export interface Client {
-  id?: number,
+  id: number,
   cpf?: string,
   fname:string,
   lname?: string,

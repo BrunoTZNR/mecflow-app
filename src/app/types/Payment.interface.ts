@@ -3,5 +3,8 @@ export interface Payment {
   amount: number,
   dtPay: string,
   typePay: string,
-  qtdParcelas?: number
+  qtdParcelas?: number,
+  totalDiscount: number,
+  status: string,
+  idOs?: number
 }

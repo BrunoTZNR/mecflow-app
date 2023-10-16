@@ -17,30 +17,42 @@ export class PaymentService {
       {
         id: 1,
         amount: 600,
-        dtPay: '12/10/2023',
+        dtPay: '2023-10-12',
         typePay: 'pix',
-        qtdParcelas: 1
+        qtdParcelas: 1,
+        totalDiscount: 0,
+        status: 'pago',
+        idOs: 1
       },
       {
         id: 2,
         amount: 1900.00,
-        dtPay: '09/10/2023',
-        typePay: 'crédito',
-        qtdParcelas: 10
+        dtPay: '2023-09-10',
+        typePay: 'credito',
+        qtdParcelas: 10,
+        totalDiscount: 0,
+        status: 'pendente',
+        idOs: 2
       },
       {
         id: 3,
         amount: 60,
-        dtPay: '05/10/2023',
-        typePay: 'débito',
-        qtdParcelas: 1
+        dtPay: '2023-10-05',
+        typePay: 'debito',
+        qtdParcelas: 1,
+        totalDiscount: 0,
+        status: 'cancelado',
+        idOs: undefined
       },
       {
         id: 4,
         amount: 150,
-        dtPay: '10/10/2023',
+        dtPay: '2023-10-10',
         typePay: 'dinheiro',
-        qtdParcelas: 1
+        qtdParcelas: 1,
+        totalDiscount: 0,
+        status: 'cancelado',
+        idOs: undefined
       }
     ]
   }

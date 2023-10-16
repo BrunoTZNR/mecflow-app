@@ -1,0 +1,58 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/produto">produto</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <form>
+      <h2 class="title">cadastrar produto</h2>
+
+      <h4 class="title">dados do produto</h4>
+
+      <div class="label-wrapper">
+        <label for="product">produto</label>
+        <select class="input" name="product" id="product" [(ngModel)]="selectedProd">
+          <option selected disabled></option>
+          <option *ngFor="let prod of products" value="{{ prod.id }}">{{ prod.cod + ' - ' + prod.desc }}</option>
+        </select>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="qtdProds">quantidade do produto</label>
+          <input type="text" name="qtdProds" placeholder="quantidade do produto" [(ngModel)]="qtdProds">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="employee">funcionario</label>
+          <select class="input" name="employee" id="employee" [(ngModel)]="selectedEmployee">
+            <option selected disabled></option>
+            <option *ngFor="let emp of employees" value="{{ emp.id }}">{{ emp.fname + ' - ' + emp.lname }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="totalAmount">preço total</label>
+          <input type="text" name="totalAmount" [(ngModel)]="totalAmount">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="discountAmount">desconto total</label>
+          <input type="text" name="discountAmount" [(ngModel)]="discountAmount">
+        </div>
+      </div>
+
+      <button class="button" (click)="salvarProdutoOs()">cadastrar</button>
+    </form>
+  </div>
+</main>

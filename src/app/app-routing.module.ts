@@ -33,6 +33,13 @@ import { OsComponent } from './components/os/os.component';
 import { OsCadastrarComponent } from './components/os/os-cadastrar/os-cadastrar.component';
 import { OsDetailComponent } from './components/os/os-detail/os-detail.component';
 import { OsEditComponent } from './components/os/os-edit/os-edit.component';
+import { ProductCadastrarOsComponent } from './components/product/product-cadastrar/product-cadastrar-os/product-cadastrar-os.component';
+import { ManufactureCadastrarOsComponent } from './components/manufacture/manufacture-cadastrar/manufacture-cadastrar-os/manufacture-cadastrar-os.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { PaymentCadastrarComponent } from './components/payment/payment-cadastrar/payment-cadastrar.component';
+import { PaymentEditComponent } from './components/payment/payment-edit/payment-edit.component';
+import { ManufactureEditOsComponent } from './components/manufacture/manufacture-edit/manufacture-edit-os/manufacture-edit-os.component';
+import { ProductEditOsComponent } from './components/product/product-edit/product-edit-os/product-edit-os.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -45,12 +52,16 @@ const routes: Routes = [
   { path: 'funcionario/:id', component: EmployeeDetailComponent },
   { path: 'produto', component: ProductComponent },
   { path: 'produto/cadastrar', component: ProductCadastrarComponent },
+  { path: 'produto/cadastrar/:id-os', component: ProductCadastrarOsComponent },
   { path: 'produto/:id', component: ProductDetailComponent },
   { path: 'produto/:id/editar', component: ProductEditComponent },
+  { path: 'produto/:id/editar/:id-os/:pos', component: ProductEditOsComponent },
   { path: 'servico', component: ManufactureComponent },
   { path: 'servico/cadastrar', component: ManufactureCadastrarComponent },
+  { path: 'servico/cadastrar/:id-os', component: ManufactureCadastrarOsComponent },
   { path: 'servico/:id', component: ManufactureDetailComponent },
   { path: 'servico/:id/editar', component: ManufactureEditComponent },
+  { path: 'servico/:id/editar/:id-os/:pos', component: ManufactureEditOsComponent },
   { path: 'carro', component: CarComponent },
   { path: 'carro/cadastrar', component: CarCadastrarComponent },
   { path: 'carro/:id', component: CarDetailComponent },
@@ -63,6 +74,10 @@ const routes: Routes = [
   { path: 'pagamento/cadastrar', component: PaydayCadastrarComponent },
   { path: 'pagamento/:id', component: PaydayDetailComponent },
   { path: 'pagamento/:id/editar', component: PaydayEditComponent },
+  { path: 'pagamento-os', component: PaymentComponent },
+  { path: 'pagamento-os/cadastrar/:id-os', component: PaymentCadastrarComponent },
+  /*{ path: 'pagamento-os/:id', component: PaydayDetailComponent },*/
+  { path: 'pagamento-os/:id/editar/:id-os', component: PaymentEditComponent },
   { path: 'os', component: OsComponent },
   { path: 'os/cadastrar', component: OsCadastrarComponent },
   { path: 'os/:id', component: OsDetailComponent },

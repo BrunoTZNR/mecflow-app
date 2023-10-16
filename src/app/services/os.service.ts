@@ -44,7 +44,7 @@ export class OsService {
         User: this.userService.getUser(0),
         products: [
           {
-            id: 5,
+            id: 1,
             cod: 'cod',
             stock: 2,
             desc: 'produto bom',
@@ -58,7 +58,7 @@ export class OsService {
         ],
         services: [
           {
-            id: 5,
+            id: 1,
             desc: 'serviço com produto bom',
             amount: 50,
             discount: 10,
@@ -83,7 +83,7 @@ export class OsService {
         User: this.userService.getUser(0),
         products: [
           {
-            id: 5,
+            id: 1,
             cod: 'cod',
             stock: 2,
             desc: 'produto bom',
@@ -95,7 +95,127 @@ export class OsService {
             employee: this.employeeService.getEmployee(0)
           },
           {
-            id: 6,
+            id: 2,
+            cod: 'codwef',
+            stock: 4,
+            desc: 'produto bom e ruim',
+            price: 40.00,
+            ncm: '',
+            qtdProducts: 4,
+            discountAmount: 0.00,
+            totalAmount: 160,
+            employee: this.employeeService.getEmployee(1)
+          },
+          {
+            id: 3,
+            cod: 'cod',
+            stock: 2,
+            desc: 'produto bom',
+            price: 10.00,
+            ncm: '',
+            qtdProducts: 2,
+            discountAmount: 0.00,
+            totalAmount: 20.00,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 4,
+            cod: 'codwef',
+            stock: 4,
+            desc: 'produto bom e ruim',
+            price: 40.00,
+            ncm: '',
+            qtdProducts: 4,
+            discountAmount: 0.00,
+            totalAmount: 160,
+            employee: this.employeeService.getEmployee(1)
+          },
+          {
+            id: 1,
+            cod: 'cod',
+            stock: 2,
+            desc: 'produto bom',
+            price: 10.00,
+            ncm: '',
+            qtdProducts: 2,
+            discountAmount: 0.00,
+            totalAmount: 20.00,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 2,
+            cod: 'codwef',
+            stock: 4,
+            desc: 'produto bom e ruim',
+            price: 40.00,
+            ncm: '',
+            qtdProducts: 4,
+            discountAmount: 0.00,
+            totalAmount: 160,
+            employee: this.employeeService.getEmployee(1)
+          },
+          {
+            id: 3,
+            cod: 'cod',
+            stock: 2,
+            desc: 'produto bom',
+            price: 10.00,
+            ncm: '',
+            qtdProducts: 2,
+            discountAmount: 0.00,
+            totalAmount: 20.00,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 4,
+            cod: 'codwef',
+            stock: 4,
+            desc: 'produto bom e ruim',
+            price: 40.00,
+            ncm: '',
+            qtdProducts: 4,
+            discountAmount: 0.00,
+            totalAmount: 160,
+            employee: this.employeeService.getEmployee(1)
+          },
+          {
+            id: 1,
+            cod: 'cod',
+            stock: 2,
+            desc: 'produto bom',
+            price: 10.00,
+            ncm: '',
+            qtdProducts: 2,
+            discountAmount: 0.00,
+            totalAmount: 20.00,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 2,
+            cod: 'codwef',
+            stock: 4,
+            desc: 'produto bom e ruim',
+            price: 40.00,
+            ncm: '',
+            qtdProducts: 4,
+            discountAmount: 0.00,
+            totalAmount: 160,
+            employee: this.employeeService.getEmployee(1)
+          },
+          {
+            id: 3,
+            cod: 'cod',
+            stock: 2,
+            desc: 'produto bom',
+            price: 10.00,
+            ncm: '',
+            qtdProducts: 2,
+            discountAmount: 0.00,
+            totalAmount: 20.00,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 4,
             cod: 'codwef',
             stock: 4,
             desc: 'produto bom e ruim',
@@ -109,14 +229,84 @@ export class OsService {
         ],
         services: [
           {
-            id: 5,
+            id: 1,
             desc: 'serviço com produto bom',
             amount: 50,
             discount: 10,
             employee: this.employeeService.getEmployee(0)
           },
           {
-            id: 6,
+            id: 2,
+            desc: 'serviço com produto bom e ruim',
+            amount: 80,
+            discount: 0,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 3,
+            desc: 'serviço com produto bom',
+            amount: 50,
+            discount: 10,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 4,
+            desc: 'serviço com produto bom e ruim',
+            amount: 80,
+            discount: 0,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 1,
+            desc: 'serviço com produto bom',
+            amount: 50,
+            discount: 10,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 2,
+            desc: 'serviço com produto bom e ruim',
+            amount: 80,
+            discount: 0,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 3,
+            desc: 'serviço com produto bom',
+            amount: 50,
+            discount: 10,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 4,
+            desc: 'serviço com produto bom e ruim',
+            amount: 80,
+            discount: 0,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 1,
+            desc: 'serviço com produto bom',
+            amount: 50,
+            discount: 10,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 2,
+            desc: 'serviço com produto bom e ruim',
+            amount: 80,
+            discount: 0,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 3,
+            desc: 'serviço com produto bom',
+            amount: 50,
+            discount: 10,
+            employee: this.employeeService.getEmployee(0)
+          },
+          {
+            id: 4,
             desc: 'serviço com produto bom e ruim',
             amount: 80,
             discount: 0,

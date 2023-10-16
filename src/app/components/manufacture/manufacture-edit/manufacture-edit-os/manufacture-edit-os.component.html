@@ -1,0 +1,46 @@
+<main>
+  <header>
+    <div class="header-wrapper">
+      <h1 class="title-mec">mecflow</h1>
+
+      <div>
+        <a class="button" routerLink="/servico">serviço</a>
+        <a class="button" routerLink="/home">home</a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="client-wrapper">
+    <form>
+      <h2 class="title">editar serviço</h2>
+
+      <h4 class="title">dados do serviço</h4>
+
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="employee">funcionario</label>
+          <select class="input" name="employee" id="employee" [(ngModel)]="selectedEmployee">
+            <option selected disabled></option>
+            <option *ngFor="let emp of employees" value="{{ emp.id }}">{{ emp.fname + ' - ' + emp.lname }}</option>
+          </select>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="services">serviço</label>
+          <select class="input" name="services" id="services" [(ngModel)]="selectedService">
+            <option selected disabled></option>
+            <option *ngFor="let sv of os.services" value="{{ sv.id }}">{{ sv.desc + ' - ' + sv.amount }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="label-wrapper">
+        <label for="discountAmount">total de disconto</label>
+        <input type="text" name="discountAmount" [(ngModel)]="totalDiscount">
+      </div>
+
+      <button class="button" (click)="salvarServicoOs()">salvar</button>
+    </form>
+  </div>
+</main>

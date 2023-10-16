@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientDetailComponent } from './components/client/client-detail/client-detail.component';
 import { ClientComponent } from './components/client/client.component';
 import { ClientCadastrarComponent } from './components/client/client-cadastrar/client-cadastrar.component';
@@ -37,6 +37,13 @@ import { OsComponent } from './components/os/os.component';
 import { OsCadastrarComponent } from './components/os/os-cadastrar/os-cadastrar.component';
 import { OsDetailComponent } from './components/os/os-detail/os-detail.component';
 import { OsEditComponent } from './components/os/os-edit/os-edit.component';
+import { ProductCadastrarOsComponent } from './components/product/product-cadastrar/product-cadastrar-os/product-cadastrar-os.component';
+import { ManufactureCadastrarOsComponent } from './components/manufacture/manufacture-cadastrar/manufacture-cadastrar-os/manufacture-cadastrar-os.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { PaymentCadastrarComponent } from './components/payment/payment-cadastrar/payment-cadastrar.component';
+import { PaymentEditComponent } from './components/payment/payment-edit/payment-edit.component';
+import { ManufactureEditOsComponent } from './components/manufacture/manufacture-edit/manufacture-edit-os/manufacture-edit-os.component';
+import { ProductEditOsComponent } from './components/product/product-edit/product-edit-os/product-edit-os.component';
 
 @NgModule({
   declarations: [
@@ -72,14 +79,22 @@ import { OsEditComponent } from './components/os/os-edit/os-edit.component';
     OsComponent,
     OsCadastrarComponent,
     OsDetailComponent,
-    OsEditComponent
+    OsEditComponent,
+    ProductCadastrarOsComponent,
+    ManufactureCadastrarOsComponent,
+    PaymentComponent,
+    PaymentCadastrarComponent,
+    PaymentEditComponent,
+    ManufactureEditOsComponent,
+    ProductEditOsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [ClientService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

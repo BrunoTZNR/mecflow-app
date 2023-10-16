@@ -39,7 +39,7 @@ export class OsDetailComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.os = this.osService.getOs(this.id);
+    this.os = this.osService.getOs(this.id - 1);
     this.clients = this.clientService.getClients();
     this.cars = this.carService.getCars();
     this.products = this.productService.getProducts();
@@ -48,17 +48,34 @@ export class OsDetailComponent implements OnInit{
     console.log(this.os);
   }
 
+  //serviços
+  cadastrarServicoOs(): void {
+    this.router.navigate(['servico/cadastrar/' + this.os.id])
+  }
+
   detalheServicoOs(): void {
 
+  }
+  //---------------------------------
+
+  //produto
+  cadastrarProdutoOs(): void {
+    this.router.navigate(['produto/cadastrar/' + this.os.id])
   }
 
   detalheProdutoOs(): void {
 
   }
 
+  //pagamento
+  cadastrarPagamentoOs(): void {
+    this.router.navigate(['pagamento-os/cadastrar/' + this.os.id])
+  }
+
   detalhePagamentoOs(): void {
 
   }
+  //---------------------------------
 
   editarOs(): void {
     this.router.navigate(['os/' + this.id + '/editar'])
