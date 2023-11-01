@@ -29,7 +29,7 @@ export class PaymentEditComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.os = this.osService.getOs(this.idOs - 1);
+    //this.os = this.osService.getOs(this.idOs - 1);
 
     this.selectedType = this.os.payment[0].typePay;
     this.selectedStatus = this.os.payment[0].status;

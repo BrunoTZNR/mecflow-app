@@ -1,70 +1,35 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from '../types/Product.interface';
-import { EmployeeService } from './employee.service';
+import { Product, ProductCreate } from '../types/Product.model';
+import { Observable, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(
-    private employeeService: EmployeeService
-  ) { }
+  private readonly API = 'api/v1/products';
 
-  getProduct(id: number): Product {
-    return this.getProducts()[id];
+  constructor(private httpClient: HttpClient) {  }
+
+  list() {
+    return this.httpClient.get<Product[]>(this.API)
+      .pipe(
+        tap(products => console.log(products))
+      );
   }
 
-  getProducts(): Product[] {
-    return [
-      {
-        id: 1,
-        cod: 'AAA0123',
-        stock: 10,
-        desc: 'Peças de carros variados',
-        price: 999.99,
-        ncm: '1234567890',
-        qtdProducts: 1,
-        discountAmount: 0,
-        totalAmount: 999.99,
-        employee: this.employeeService.getEmployee(0)
-      },
-      {
-        id: 2,
-        cod: 'BBB4567',
-        stock: 20,
-        desc: 'Aquela peça ali',
-        price: 0.00,
-        ncm: '1234567890',
-        qtdProducts: 1,
-        discountAmount: 0,
-        totalAmount: 0.00,
-        employee: this.employeeService.getEmployee(0)
-      },
-      {
-        id: 3,
-        cod: 'C01586',
-        stock: 999,
-        desc: 'Outra peça',
-        price: 10.00,
-        ncm: '1234567890',
-        qtdProducts: 1,
-        discountAmount: 0,
-        totalAmount: 10.00,
-        employee: this.employeeService.getEmployee(0)
-      },
-      {
-        id: 4,
-        cod: 'BRKSHF8742',
-        stock: 0,
-        desc: 'Água',
-        price: 150.50,
-        ncm: '1234567890',
-        qtdProducts: 1,
-        discountAmount: 0,
-        totalAmount: 150.50,
-        employee: this.employeeService.getEmployee(0)
-      }
-    ]
+  findById(id: string) {
+    return this.httpClient.get<Product>(`${this.API}/${id}`);
+    // return this.httpClient.get<Product>(this.API);
+  }
+
+  save(record: Partial<ProductCreate>) {
+    // console.log(record)
+    return this.httpClient.post<Product>(this.API, record).pipe(first());
+  }
+
+  remove(id: string) {
+    return this.httpClient.delete<void>(`${this.API}/${id}`).pipe(first());
   }
 }

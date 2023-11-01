@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/types/Product.interface';
+import { Product } from 'src/app/types/Product.model';
 
 @Component({
   selector: 'app-product-edit',
@@ -10,22 +12,44 @@ import { Product } from 'src/app/types/Product.interface';
 })
 export class ProductEditComponent implements OnInit{
 
-  id!: string;
+  id: string;
 
-  produto!: Product;
+  // product$: Observable<Product>;
+  product$!: Product;
+  // product2!: Product;
+
+  form!: FormGroup;
 
   constructor(
+    private route: ActivatedRoute,
     private productService: ProductService,
-    private route: ActivatedRoute
-  ) {}
+    private formBuilder: FormBuilder
+  ) {
+    this.id = this.route.snapshot.params['id'];
+
+    this.productService.findById(this.id).subscribe({
+      next: data => this.add(data),
+      error: console.log
+    })
+
+  }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
+    /*this.form = this.formBuilder.group({
+      cod: [this.product$.cod],
+      stock: [this.product$.stock],
+      ncm: [this.product$.ncm],
+      desc: [this.product$.desc],
+      price: [this.product$.price]
+    });*/
 
-    this.produto = this.productService.getProduct(Number(this.id) - 1);
-    console.log(this.produto);
+    console.log(this.product$)
+  }
 
+  add(prod: Product) {
+    console.log(prod)
+
+    this.product$ = prod
   }
 
   salvarProduto(): void {

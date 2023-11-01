@@ -10,7 +10,6 @@ import { Os } from 'src/app/types/Os.interface';
 })
 export class OsComponent implements OnInit{
 
-  oss!: Os[];
 
   constructor(
     private osService: OsService,
@@ -18,9 +17,7 @@ export class OsComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.oss = this.osService.getAllOs();
 
-    console.log(this.oss);
   }
 
   detalheOs(id: any): void {

@@ -9,7 +9,6 @@ import { Car } from 'src/app/types/Car.interface';
 import { Client } from 'src/app/types/Client.interface';
 import { Manufacture } from 'src/app/types/Manufacture.interface';
 import { Os } from 'src/app/types/Os.interface';
-import { Product } from 'src/app/types/Product.interface';
 
 @Component({
   selector: 'app-os-detail',
@@ -23,14 +22,12 @@ export class OsDetailComponent implements OnInit{
   os!: Os;
   clients!: Client[];
   cars!: Car[];
-  products!: Product[];
   services!: Manufacture[];
 
   constructor(
     private osService: OsService,
     private clientService: ClientService,
     private carService: CarService,
-    private productService: ProductService,
     private manufactureService: ManufactureService,
     private router: Router,
     private route: ActivatedRoute
@@ -39,10 +36,8 @@ export class OsDetailComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.os = this.osService.getOs(this.id - 1);
     this.clients = this.clientService.getClients();
     this.cars = this.carService.getCars();
-    this.products = this.productService.getProducts();
     this.services = this.manufactureService.getManufactures();
 
     console.log(this.os);

@@ -34,7 +34,6 @@ export class ManufactureEditOsComponent implements OnInit{
   ngOnInit(): void {
     this.employees = this.employeeService.getEmployees();
     this.services = this.manufactureService.getManufactures();
-    this.os = this.osService.getOs(Number(this.route.snapshot.params['id-os']) - 1);
 
     console.log(this.os);
 

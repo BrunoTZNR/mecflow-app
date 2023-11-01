@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/types/Product.interface';
+import { Product } from 'src/app/types/Product.model';
+import { Observable, catchError, empty, tap } from 'rxjs';
+import { ProductService } from './../../../services/product.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,9 +11,10 @@ import { Product } from 'src/app/types/Product.interface';
 })
 export class ProductDetailComponent implements OnInit{
 
-  id!: string;
+  id: string;
 
-  produto!: Product;
+  product$: Observable<Product>;
+  // product$!: Product;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,11 +23,12 @@ export class ProductDetailComponent implements OnInit{
   ) {
     //pega o id da url
     this.id = this.route.snapshot.params['id'];
+
+    this.product$ = this.productService.findById(this.id);
   }
 
   ngOnInit(): void {
-    this.produto = this.productService.getProduct(Number(this.id) - 1);
-    // console.log(this.cliente);
+    console.log(this.product$)
   }
 
   editarProduto(): void {
@@ -33,6 +36,10 @@ export class ProductDetailComponent implements OnInit{
   }
 
   deletarProduto(): void {
-
+    this.productService.remove(this.id)
+      .subscribe({
+        next: () => this.router.navigate(['produto']),
+        error: console.log
+      });
   }
 }

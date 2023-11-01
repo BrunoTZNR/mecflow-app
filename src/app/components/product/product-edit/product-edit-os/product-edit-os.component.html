@@ -21,7 +21,7 @@
         <label for="product">produto</label>
         <select class="input" name="product" id="product" [(ngModel)]="selectedProd">
           <option selected disabled></option>
-          <option *ngFor="let prod of products" value="{{ prod.id }}">{{ prod.cod + ' - ' + prod.desc }}</option>
+          <!-- <option *ngFor="let prod of products" value="{{ prod.id }}">{{ prod.cod + ' - ' + prod.desc }}</option> -->
         </select>
       </div>
 

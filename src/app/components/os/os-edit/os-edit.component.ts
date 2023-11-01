@@ -9,7 +9,6 @@ import { Car } from 'src/app/types/Car.interface';
 import { Client } from 'src/app/types/Client.interface';
 import { Manufacture } from 'src/app/types/Manufacture.interface';
 import { Os } from 'src/app/types/Os.interface';
-import { Product } from 'src/app/types/Product.interface';
 
 @Component({
   selector: 'app-os-edit',
@@ -22,7 +21,6 @@ export class OsEditComponent implements OnInit{
   id!: number;
   clients!: Client[];
   cars!: Car[];
-  products!: Product[];
   services!: Manufacture[];
 
   selectedCli!: number;
@@ -42,11 +40,9 @@ export class OsEditComponent implements OnInit{
   ngOnInit(): void {
     this.clients = this.clientService.getClients();
     this.cars = this.carService.getCars();
-    this.products = this.productService.getProducts();
     this.services = this.manufactureService.getManufactures();
 
     this.id = Number(this.route.snapshot.params['id']);
-    this.os = this.osService.getOs(this.id - 1);
 
     this.selectedCli = this.os.client.id;
     this.selectedCar = this.os.car.id;

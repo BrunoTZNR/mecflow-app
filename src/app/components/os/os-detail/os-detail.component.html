@@ -52,9 +52,9 @@
         <div class="label-wrapper">
           <label for="products">produtos</label>
           <div class="input" name="products" id="products">
-            <p class="input" *ngFor="let osP of os.products" (click)="detalheProdutoOs()">
+            <!-- <p class="input" *ngFor="let osP of os.products" (click)="detalheProdutoOs()">
               {{ osP.desc }} - {{ osP.qtdProducts }} - {{ osP.totalAmount | currency: 'BRL'}}
-            </p>
+            </p> -->
           </div>
           <button class="button" (click)="cadastrarProdutoOs()">adicionar produto</button>
         </div>

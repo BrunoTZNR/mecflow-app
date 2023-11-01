@@ -6,7 +6,6 @@ import { OsService } from 'src/app/services/os.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Employee } from 'src/app/types/Employee.interface';
 import { Os } from 'src/app/types/Os.interface';
-import { Product } from 'src/app/types/Product.interface';
 
 @Component({
   selector: 'app-product-edit-os',
@@ -17,7 +16,6 @@ export class ProductEditOsComponent implements OnInit{
 
   os!: Os;
 
-  products!: Product[];
   employees!: Employee[];
 
   selectedProd!: number;
@@ -35,16 +33,9 @@ export class ProductEditOsComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.os = this.osService.getOs(Number(this.route.snapshot.params['id-os']) - 1);
+    //this.os = this.osService.getOs(Number(this.route.snapshot.params['id-os']) - 1);
 
-    this.products = this.productService.getProducts();
     this.employees = this.employeeService.getEmployees();
-
-    this.selectedProd = this.os.products[Number(this.route.snapshot.params['pos'])].id;
-    this.selectedEmployee = this.os.products[Number(this.route.snapshot.params['pos'])].employee.id;
-    this.qtdProds = this.os.products[Number(this.route.snapshot.params['pos'])].qtdProducts;
-    this.totalAmount = this.os.products[Number(this.route.snapshot.params['pos'])].totalAmount;
-    this.discountAmount = this.os.products[Number(this.route.snapshot.params['pos'])].discountAmount;
   }
 
   salvarProdutoOs(): void {

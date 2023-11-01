@@ -12,7 +12,7 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">editar produto</h2>
 
       <h4 class="title">dados do produto</h4>
@@ -20,28 +20,28 @@
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="cod">código</label>
-          <input type="text" name="cod" placeholder="código" value="{{ produto.cod }}">
+          <input type="text" id="cod" name="cod" placeholder="código" formControlName="cod">
         </div>
 
         <div class="label-wrapper">
           <label for="stock">estoque</label>
-          <input type="text" name="stock" placeholder="stock" value="{{ produto.stock }}">
+          <input type="text" id="stock" name="stock" placeholder="stock" formControlName="stock">
         </div>
 
         <div class="label-wrapper">
           <label for="ncm">ncm</label>
-          <input type="text" name="ncm" placeholder="ncm" value="{{ produto.ncm }}">
+          <input type="text" id="ncm" name="ncm" placeholder="ncm" formControlName="ncm">
         </div>
       </div>
 
       <div class="label-wrapper">
         <label for="desc">descrição</label>
-        <input type="text" name="desc" value="{{ produto.desc }}">
+        <input type="text" id="desc" name="desc" formControlName="desc">
       </div>
 
       <div class="label-wrapper">
         <label for="price">preço</label>
-        <input type="text" name="price" value="{{ produto.price }}">
+        <input type="text" id="price" name="price" formControlName="price">
       </div>
 
       <button class="button" (click)="salvarProduto()">salvar</button>

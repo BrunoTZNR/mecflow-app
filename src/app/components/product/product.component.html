@@ -26,7 +26,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let prod of products;">
+          <tr *ngFor="let prod of products$ | async;">
             <td>{{ prod.cod }}</td>
             <td><a routerLink="/produto/{{ prod.id }}">{{ prod.desc }}</a></td>
             <td>{{ prod.stock }}</td>

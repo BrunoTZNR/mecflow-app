@@ -12,36 +12,36 @@
   </header>
 
   <div class="client-wrapper">
-    <section>
+    <section *ngIf="product$ | async as prod">
       <h2 class="title">detalhe do produto</h2>
 
       <h4 class="title">dados do produto</h4>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
-          <label for="cod">código</label>
-          <p class="input" type="text" name="cod">{{ produto.cod }}</p>
+          <p>código</p>
+          <span class="input" id="cod" type="text" name="cod">{{ prod.cod }}</span>
         </div>
 
         <div class="label-wrapper">
-          <label for="stock">estoque</label>
-          <p class="input" type="text" name="stock">{{ produto.stock }}</p>
+          <p>estoque</p>
+          <span class="input" type="text" name="stock">{{ prod.stock }}</span>
         </div>
 
         <div class="label-wrapper">
-          <label for="ncm">ncm</label>
-          <p class="input" type="text" name="ncm">{{ produto.ncm }}</p>
+          <p>ncm</p>
+          <span class="input" type="text" name="ncm">{{ prod.ncm == null ? "-" : prod.ncm }}</span>
         </div>
       </div>
 
       <div class="label-wrapper">
-        <label for="desc">descrição</label>
-        <p class="input" type="text" name="desc">{{ produto.desc }}</p>
+        <p>descrição</p>
+        <span class="input" type="text" name="desc">{{ prod.desc }}</span>
       </div>
 
       <div class="label-wrapper">
-        <label for="price">preço</label>
-        <p class="input" type="text" name="price">{{ produto.price }}</p>
+        <p>preço</p>
+        <span class="input" type="text" name="price">{{ prod.price }}</span>
       </div>
 
       <div class="button-wrapper">
