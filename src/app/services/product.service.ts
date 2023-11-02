@@ -21,12 +21,14 @@ export class ProductService {
 
   findById(id: string) {
     return this.httpClient.get<Product>(`${this.API}/${id}`);
-    // return this.httpClient.get<Product>(this.API);
   }
 
-  save(record: Partial<ProductCreate>) {
-    // console.log(record)
+  save(record: ProductCreate) {
     return this.httpClient.post<Product>(this.API, record).pipe(first());
+  }
+
+  update(record: Product) {
+    return this.httpClient.put<Product>(`${this.API}/${record.id}`, record).pipe(first());
   }
 
   remove(id: string) {

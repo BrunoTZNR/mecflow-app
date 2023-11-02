@@ -23,7 +23,7 @@ export class ProductCadastrarComponent implements OnInit{
     this.form = this.formBuilder.group({
       cod: [''],
       stock: [0],
-      ncm: [''],
+      ncm: [null],
       desc: [''],
       price: [0.0]
     });

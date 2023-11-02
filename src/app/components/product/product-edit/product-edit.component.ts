@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/types/Product.model';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ProductService } from "src/app/services/product.service";
+import { Product } from "src/app/types/Product.model";
 
 @Component({
   selector: 'app-product-edit',
@@ -12,47 +11,45 @@ import { Product } from 'src/app/types/Product.model';
 })
 export class ProductEditComponent implements OnInit{
 
-  id: string;
-
-  // product$: Observable<Product>;
-  product$!: Product;
-  // product2!: Product;
-
   form!: FormGroup;
+  product!: Product;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
-    this.id = this.route.snapshot.params['id'];
-
-    this.productService.findById(this.id).subscribe({
-      next: data => this.add(data),
-      error: console.log
-    })
 
   }
 
   ngOnInit(): void {
-    /*this.form = this.formBuilder.group({
-      cod: [this.product$.cod],
-      stock: [this.product$.stock],
-      ncm: [this.product$.ncm],
-      desc: [this.product$.desc],
-      price: [this.product$.price]
-    });*/
+    this.form = this.formBuilder.group({
+      id: [null],
+      cod: [null],
+      stock: [null],
+      ncm: [null],
+      desc: [null],
+      price: [null]
+    });
 
-    console.log(this.product$)
+    this.getData();
   }
 
-  add(prod: Product) {
-    console.log(prod)
-
-    this.product$ = prod
+  getData() {
+    this.productService.findById(this.route.snapshot.params['id']).subscribe(data => {
+      this.form.patchValue(data)
+    })
   }
 
-  salvarProduto(): void {
+  voltar(): void {
+    this.router.navigate([`produto/${this.route.snapshot.params['id']}`])
+  }
 
+  salvarProduto():void {
+    // console.log(this.form.value)
+    this.productService.update(this.form.value).subscribe({
+      next: data => this.router.navigate([`produto/${data.id}`])
+    });
   }
 }

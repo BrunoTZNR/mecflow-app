@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/types/Product.model';
 import { Observable, catchError, empty, tap } from 'rxjs';
@@ -28,7 +28,7 @@ export class ProductDetailComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log(this.product$)
+    // console.log(this.product$)
   }
 
   editarProduto(): void {

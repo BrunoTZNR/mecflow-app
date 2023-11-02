@@ -76,9 +76,14 @@ main {
       }
     }
 
-    .button {
-      width: 100%;
-      background: var(--dark-3);
+    .button-wrapper {
+      display: flex;
+      gap: 2rem;
+
+      .button {
+        width: 100%;
+        background: var(--dark-3);
+      }
     }
   }
 }

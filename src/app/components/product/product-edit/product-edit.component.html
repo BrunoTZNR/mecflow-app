@@ -17,6 +17,8 @@
 
       <h4 class="title">dados do produto</h4>
 
+      <input hidden type="text" name="id" id="id" formControlName="id">
+
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="cod">código</label>
@@ -44,7 +46,11 @@
         <input type="text" id="price" name="price" formControlName="price">
       </div>
 
-      <button class="button" (click)="salvarProduto()">salvar</button>
+      <div class="button-wrapper">
+        <button class="button" (click)="voltar()">voltar</button>
+        <button class="button" (click)="salvarProduto()">salvar</button>
+      </div>
+
     </form>
   </div>
 </main>
