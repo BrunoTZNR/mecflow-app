@@ -19,15 +19,17 @@
         <thead>
           <tr>
             <td>placa</td>
-            <td>carro</td>
+            <td>marca</td>
+            <td>modelo</td>
             <td>cor</td>
           </tr>
         </thead>
 
         <tbody>
-          <tr *ngFor="let car of cars;" (click)="detalheCar(car.id)">
-            <td>{{ car.id }}</td>
-            <td>{{ car.automaker + ' - ' +  car.model}}</td>
+          <tr *ngFor="let car of cars$ | async;" (click)="detalheCar(car.placa)">
+            <td>{{ car.placa }}</td>
+            <td>{{ car.automaker }}</td>
+            <td>{{ car.model }}</td>
             <td>{{ car.color }}</td>
           </tr>
         </tbody>

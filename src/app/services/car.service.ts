@@ -1,67 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Car } from '../types/Car.interface';
+import { HttpClient } from '@angular/common/http';
+import { Car } from '../types/Car.model';
+import { first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
 
-  constructor() { }
+  private readonly API = 'api/v1/cars'
 
-  getCar(id: number): Car {
-    return this.getCars()[id];
+  constructor(private httpClient: HttpClient) { }
+
+  list() {
+    return this.httpClient.get<Car[]>(this.API);
   }
 
-  getCars(): Car[] {
-    return [
-      {
-        id: 1,
-        placa: 'AAA9999',
-        model: 'doblo adventure',
-        engine: 16,
-        comb: 'flex',
-        automaker: 'fiat',
-        capacity: 1.8,
-        fYear: '2010',
-        mYear: '2011',
-        color: 'prata'
-      },
-      {
-        id: 2,
-        placa: 'BBB0000',
-        model: 'j2',
-        engine: 16,
-        comb: 'gasolina',
-        automaker: 'jac motors',
-        capacity: 1.4,
-        fYear: '2013',
-        mYear: '2014',
-        color: 'grena'
-      },
-      {
-        id: 3,
-        placa: 'CCC9876',
-        model: 'gol g5',
-        engine: 8,
-        comb: 'flex',
-        automaker: 'volkswagem',
-        capacity: 1.0,
-        fYear: '2011',
-        mYear: '2011',
-        color: 'prata'
-      },
-      {
-        id: 4,
-        placa: 'FVC6669',
-        model: 'uno',
-        engine: 8,
-        comb: 'flex',
-        automaker: 'fiat',
-        capacity: 1.0,
-        fYear: '2005',
-        mYear: '2006',
-        color: 'vermelho'
-      }
-    ]
+  findByPlaca(placa: string) {
+    return this.httpClient.get<Car>(`${this.API}/${placa}`);
+  }
+
+  save(record: Car) {
+    return this.httpClient.post<Car>(this.API, record).pipe(first());
+  }
+
+  update(record: Car) {
+    return this.httpClient.put<Car>(`${this.API}/${record.placa}`, record).pipe(first());
+  }
+
+  remove(placa: string) {
+    return this.httpClient.delete<void>(`${this.API}/${placa}`).pipe(first());
   }
 }

@@ -1,50 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Manufacture } from '../types/Manufacture.interface';
-import { EmployeeService } from './employee.service';
+import { HttpClient } from '@angular/common/http';
+import { Services, ServicesCreate } from '../types/Services.model';
+import { first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ManufactureService {
 
-  constructor(
-    private employeeService: EmployeeService
-  ) { }
+  private readonly API = 'api/v1/services';
 
-  getManufacture(id: number): Manufacture {
-    return this.getManufactures()[id];
+  constructor(private httpClient: HttpClient) {}
+
+  list() {
+    return this.httpClient.get<Services[]>(this.API);
   }
 
-  getManufactures(): Manufacture[] {
-    return [
-      {
-        id: 1,
-        desc: 'Aquele serviço',
-        amount: 50.00,
-        discount: 0,
-        employee: this.employeeService.getEmployee(0)
-      },
-      {
-        id: 2,
-        desc: 'Serviços diversos',
-        amount: 150.00,
-        discount: 0,
-        employee: this.employeeService.getEmployee(0)
-      },
-      {
-        id: 3,
-        desc: 'Alinhamento',
-        amount: 60.00,
-        discount: 0,
-        employee: this.employeeService.getEmployee(0)
-      },
-      {
-        id: 4,
-        desc: 'Balanceamento',
-        amount: 60.00,
-        discount: 0,
-        employee: this.employeeService.getEmployee(0)
-      },
-    ]
+  findById(id: string) {
+    return this.httpClient.get<Services>(`${this.API}/${id}`);
+  }
+
+  save(record: ServicesCreate) {
+    return this.httpClient.post<Services>(this.API, record).pipe(first());
+  }
+
+  update(record: Services) {
+    return this.httpClient.put<Services>(`${this.API}/${record.id}`, record).pipe(first());
+  }
+
+  remove(id: string) {
+    return this.httpClient.delete<void>(`${this.API}/${id}`).pipe(first());
   }
 }

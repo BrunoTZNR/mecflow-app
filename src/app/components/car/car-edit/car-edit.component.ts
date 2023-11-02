@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarService } from 'src/app/services/car.service';
-import { Car } from 'src/app/types/Car.interface';
 
 @Component({
   selector: 'app-car-edit',
@@ -10,25 +10,46 @@ import { Car } from 'src/app/types/Car.interface';
 })
 export class CarEditComponent implements OnInit{
 
-  id!: string;
+  placa: string;
 
-  car!: Car;
+  form!: FormGroup;
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private carService: CarService,
-    private route: ActivatedRoute
-  ) {}
+    private formBuilder: FormBuilder
+  ) {
+    this.placa = this.route.snapshot.params['placa'];
+  }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
+    this.form = this.formBuilder.group({
+      placa: [''],
+      fYear: [''],
+      mYear: [''],
+      automaker: [''],
+      model: [''],
+      color: [''],
+      capacity: [''],
+      engine: [''],
+      fuel: ['gasolina']
+    });
 
-    this.car = this.carService.getCar(Number(this.id) - 1);
-    // console.log(this.car);
+    this.getData();
+  }
 
+  getData() {
+    this.carService.findByPlaca(this.placa).subscribe({
+      next: data => this.form.patchValue(data),
+      error: console.log
+    });
   }
 
   salvarCar(): void {
-
+    this.carService.update(this.form.value).subscribe({
+      next: data => this.router.navigate([`carro/${data.placa}`]),
+      error: console.log
+    });
   }
 }

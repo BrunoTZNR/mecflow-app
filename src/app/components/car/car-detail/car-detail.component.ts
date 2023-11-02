@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CarService } from 'src/app/services/car.service';
-import { Car } from 'src/app/types/Car.interface';
+import { Car } from 'src/app/types/Car.model';
 
 @Component({
   selector: 'app-car-detail',
@@ -10,9 +11,9 @@ import { Car } from 'src/app/types/Car.interface';
 })
 export class CarDetailComponent implements OnInit{
 
-  id!: number;
+  placa: string;
 
-  car!: Car;
+  car$: Observable<Car>;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,19 +21,21 @@ export class CarDetailComponent implements OnInit{
     private carService: CarService
   ) {
     //pega o id da url
-    this.id = this.route.snapshot.params['id'];
+    this.placa = this.route.snapshot.params['placa'];
+
+    this.car$ = this.carService.findByPlaca(this.placa);
   }
 
-  ngOnInit(): void {
-    this.car = this.carService.getCar(Number(this.id) - 1);
-    // console.log(this.car);
-  }
+  ngOnInit(): void {}
 
   editarCar(): void {
-    this.router.navigate(['carro/' + this.id + '/editar']);
+    this.router.navigate(['carro/' + this.placa + '/editar']);
   }
 
   deletarCar(): void {
-
+    this.carService.remove(this.placa).subscribe({
+      next: () => this.router.navigate(['carro']),
+      error: console.log
+    })
   }
 }

@@ -5,9 +5,8 @@ import { ClientService } from 'src/app/services/client.service';
 import { ManufactureService } from 'src/app/services/manufacture.service';
 import { OsService } from 'src/app/services/os.service';
 import { ProductService } from 'src/app/services/product.service';
-import { Car } from 'src/app/types/Car.interface';
+import { Car } from 'src/app/types/Car.model';
 import { Client } from 'src/app/types/Client.interface';
-import { Manufacture } from 'src/app/types/Manufacture.interface';
 import { Os } from 'src/app/types/Os.interface';
 
 @Component({
@@ -17,50 +16,32 @@ import { Os } from 'src/app/types/Os.interface';
 })
 export class OsEditComponent implements OnInit{
 
-  os!: Os;
-  id!: number;
-  clients!: Client[];
-  cars!: Car[];
-  services!: Manufacture[];
-
-  selectedCli!: number;
-  selectedCar!: number;
-  selectedStatus!: string;
+  id: string;
 
   constructor(
     private osService: OsService,
     private clientService: ClientService,
     private carService: CarService,
-    private productService: ProductService,
-    private manufactureService: ManufactureService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    this.id = this.route.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
-    this.clients = this.clientService.getClients();
-    this.cars = this.carService.getCars();
-    this.services = this.manufactureService.getManufactures();
 
-    this.id = Number(this.route.snapshot.params['id']);
-
-    this.selectedCli = this.os.client.id;
-    this.selectedCar = this.os.car.id;
-    this.selectedStatus = this.os.status;
-
-    console.log(this.os);
   }
 
   editarPagamentoOs(): void {
-    this.router.navigate(['pagamento-os/' + this.route.snapshot.params['id'] + '/editar/' + this.os.id]);
+    this.router.navigate(['pagamento-os/' + this.route.snapshot.params['id'] + '/editar/' + this.id]);
   }
 
   editarServicoOs(pos: any): void {
-    this.router.navigate(['servico/' + this.route.snapshot.params['id'] + '/editar/' + this.os.id + '/' + pos]);
+    this.router.navigate(['servico/' + this.route.snapshot.params['id'] + '/editar/' + this.id + '/' + pos]);
   }
 
   editarProdutoOs(pos: any): void {
-    this.router.navigate(['produto/' + this.route.snapshot.params['id'] + '/editar/' + this.os.id + '/' + pos]);
+    this.router.navigate(['produto/' + this.route.snapshot.params['id'] + '/editar/' + this.id + '/' + pos]);
   }
 
   salvarOs(): void {

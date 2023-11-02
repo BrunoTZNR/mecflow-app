@@ -17,7 +17,7 @@
 
       <h4 class="title">dados do cliente</h4>
 
-      <div class="label-wrapper" >
+      <!-- <div class="label-wrapper" >
         <label for="client">cliente</label>
         <p class="input" name="client" id="client">{{ os.client.fname + ' ' + os.client.lname }}</p>
       </div>
@@ -44,9 +44,9 @@
 
         <div class="label-wrapper">
           <label for="status">status</label>
-          <p class="input" name="status" id="status">{{ os.status}}</p>
+          <p class="input" name="status" id="status">{{ os.status }}</p>
         </div>
-      </div>
+      </div> -->
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
@@ -62,9 +62,9 @@
         <div class="label-wrapper">
           <label for="services">serviços</label>
           <div class="input" name="services" id="services">
-            <p class="input" *ngFor="let osS of os.services" (click)="detalheServicoOs()">
+            <!-- <p class="input" *ngFor="let osS of os.services" (click)="detalheServicoOs()">
               {{ osS.desc }} - {{ osS.amount | currency: 'BRL'}}
-            </p>
+            </p> -->
           </div>
           <button class="button" (click)="cadastrarServicoOs()">adicionar serviço</button>
         </div>
@@ -72,9 +72,9 @@
         <div class="label-wrapper">
           <label for="payment">pagamentos</label>
           <div class="input" name="payment" id="payment">
-            <p class="input" *ngFor="let osC of os.payment" (click)="detalhePagamentoOs()">
+            <!-- <p class="input" *ngFor="let osC of os.payment" (click)="detalhePagamentoOs()">
               {{ osC.typePay }} - {{ osC.amount | currency: 'BRL'}} - {{ osC.dtPay | date: 'dd/MM/yyyy' }}
-            </p>
+            </p> -->
           </div>
           <button class="button" (click)="cadastrarPagamentoOs()">adicionar pagamento</button>
         </div>

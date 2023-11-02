@@ -47,9 +47,9 @@ export class ProductEditComponent implements OnInit{
   }
 
   salvarProduto():void {
-    // console.log(this.form.value)
     this.productService.update(this.form.value).subscribe({
-      next: data => this.router.navigate([`produto/${data.id}`])
+      next: data => this.router.navigate([`produto/${data.id}`]),
+      error: console.log
     });
   }
 }

@@ -12,7 +12,7 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">cadastrar carro</h2>
 
       <h4 class="title">dados do carro</h4>
@@ -20,46 +20,57 @@
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="placa">placa</label>
-          <input type="text" name="placa" placeholder="placa">
+          <input type="text" name="placa" id="placa" placeholder="placa" formControlName="placa">
         </div>
 
         <div class="label-wrapper">
           <label for="fYear">ano de fabricação</label>
-          <input type="text" name="fYear" placeholder="ano de fabricação">
+          <input type="text" name="fYear" id="fYear" placeholder="ano de fabricação" formControlName="fYear">
         </div>
 
         <div class="label-wrapper">
           <label for="mYear">ano do modelo</label>
-          <input type="text" name="mYear" placeholder="ano do modelo">
+          <input type="text" name="mYear" id="mYear" placeholder="ano do modelo" formControlName="mYear">
         </div>
       </div>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="automaker">marca</label>
-          <input type="text" name="automaker" placeholder="fabricante">
+          <input type="text" name="automaker" id="automaker" placeholder="fabricante" formControlName="automaker">
         </div>
 
         <div class="label-wrapper">
           <label for="model">modelo</label>
-          <input type="text" name="model" placeholder="modelo">
+          <input type="text" name="model" id="model" placeholder="modelo" formControlName="model">
         </div>
 
         <div class="label-wrapper">
           <label for="color">cor</label>
-          <input type="text" name="color" placeholder="cor">
+          <input type="text" name="color" id="color" placeholder="cor" formControlName="color">
         </div>
       </div>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="capacity">cilindradas</label>
-          <input type="text" name="capacity" placeholder="cilindradas">
+          <input type="text" name="capacity" id="capacity" placeholder="cilindradas" formControlName="capacity">
         </div>
 
         <div class="label-wrapper">
           <label for="engine">quantidade de valvulas</label>
-          <input type="text" name="engine" placeholder="quantidade de valvulas">
+          <input type="text" name="engine" id="engine" placeholder="quantidade de valvulas" formControlName="engine">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="fuel">combustivel</label>
+          <select class="input" name="fuel" id="fuel" formControlName="fuel">
+            <option value="gasolina">gasolina</option>
+            <option value="alcool">alcool</option>
+            <option value="flex">flex</option>
+            <option value="diesel">diesel</option>
+            <option value="eletrico">eletrico</option>
+          </select>
         </div>
       </div>
 

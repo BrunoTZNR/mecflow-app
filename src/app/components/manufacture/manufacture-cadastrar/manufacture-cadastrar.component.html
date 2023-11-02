@@ -12,19 +12,19 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">cadastrar serviço</h2>
 
       <h4 class="title">dados do serviço</h4>
 
       <div class="label-wrapper">
         <label for="desc">descrição</label>
-        <input type="text" name="desc">
+        <input type="text" id="desc" name="desc" formControlName="desc">
       </div>
 
       <div class="label-wrapper">
         <label for="amount">preço</label>
-        <input type="text" name="amount">
+        <input type="text" id="amount" name="amount" formControlName="amount">
       </div>
 
       <button class="button" (click)="cadastrarServico()">cadastrar</button>

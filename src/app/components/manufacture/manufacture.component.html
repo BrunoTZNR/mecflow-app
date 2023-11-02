@@ -25,7 +25,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let sv of servicos;" (click)="detalheServico(sv.id)">
+          <tr *ngFor="let sv of services$ | async as sev;" (click)="detalheServico(sv.id)">
             <td>{{ sv.id }}</td>
             <td>{{ sv.desc }}</td>
             <td>{{ 'R$ ' + sv.amount }}</td>

@@ -12,19 +12,19 @@
   </header>
 
   <div class="client-wrapper">
-    <section>
+    <section *ngIf="service$ | async as sv;">
       <h2 class="title">detalhe do serviço</h2>
 
       <h4 class="title">dados do serviço</h4>
 
       <div class="label-wrapper">
         <label for="desc">descrição</label>
-        <p class="input" type="text" name="desc">{{ servico.desc }}</p>
+        <p class="input" type="text" id="desc" name="desc">{{ sv.desc }}</p>
       </div>
 
       <div class="label-wrapper">
         <label for="amount">preço</label>
-        <p class="input" type="text" name="amount">{{ servico.amount }}</p>
+        <p class="input" type="text" id="amount" name="amount">{{ sv.amount }}</p>
       </div>
 
       <div class="button-wrapper">

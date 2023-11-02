@@ -13,10 +13,7 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {  }
 
   list() {
-    return this.httpClient.get<Product[]>(this.API)
-      .pipe(
-        tap(products => console.log(products))
-      );
+    return this.httpClient.get<Product[]>(this.API);
   }
 
   findById(id: string) {

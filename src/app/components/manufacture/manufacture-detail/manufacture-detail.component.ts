@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ManufactureService } from 'src/app/services/manufacture.service';
-import { Manufacture } from 'src/app/types/Manufacture.interface';
+import { Services } from 'src/app/types/Services.model';
 
 @Component({
   selector: 'app-manufacture-detail',
   templateUrl: './manufacture-detail.component.html',
   styleUrls: ['./manufacture-detail.component.scss']
 })
-export class ManufactureDetailComponent implements OnInit{
+export class ManufactureDetailComponent{
 
-  id!: string;
+  id: string;
 
-  servico!: Manufacture;
+  service$: Observable<Services>;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private manufactureService: ManufactureService
+    private servicesService: ManufactureService
   ) {
-    //pega o id da url
-    this.id = this.route.snapshot.params['id'];
-  }
+    this.id = route.snapshot.params['id'];
 
-  ngOnInit(): void {
-    this.servico = this.manufactureService.getManufacture(Number(this.id) - 1);
-    // console.log(this.cliente);
+    this.service$ = this.servicesService.findById(this.id);
   }
 
   editarServico(): void {
@@ -33,6 +30,9 @@ export class ManufactureDetailComponent implements OnInit{
   }
 
   deletarServico(): void {
-
+    this.servicesService.remove(this.id).subscribe({
+      next: () => this.router.navigate(['servico']),
+      error: console.log
+    })
   }
 }

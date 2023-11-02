@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ManufactureService } from 'src/app/services/manufacture.service';
-import { Manufacture } from 'src/app/types/Manufacture.interface';
+import { Services } from 'src/app/types/Services.model';
 
 @Component({
   selector: 'app-manufacture',
@@ -10,15 +11,17 @@ import { Manufacture } from 'src/app/types/Manufacture.interface';
 })
 export class ManufactureComponent implements OnInit{
 
-  servicos!: Manufacture[];
+  services$: Observable<Services[]>;
 
   constructor(
-    private manufactureService: ManufactureService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private servicesServices: ManufactureService
+  ) {
+    this.services$ = this.servicesServices.list();
+  }
 
   ngOnInit(): void {
-    this.servicos = this.manufactureService.getManufactures();
+
   }
 
   detalheServico(id: any): void {

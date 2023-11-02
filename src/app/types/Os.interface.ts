@@ -1,6 +1,5 @@
-import { Car } from "./Car.interface";
+import { Car } from "./Car.model";
 import { Client } from "./Client.interface";
-import { Manufacture } from "./Manufacture.interface";
 import { Payment } from "./Payment.interface";
 import { User } from "./User.interface";
 
@@ -18,6 +17,5 @@ export interface Os {
   car: Car,
   User: User,
   //products: Product[],
-  services: Manufacture[],
   payment: Payment[]
 }

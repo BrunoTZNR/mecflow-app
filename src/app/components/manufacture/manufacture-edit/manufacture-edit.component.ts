@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ManufactureService } from 'src/app/services/manufacture.service';
-import { Manufacture } from 'src/app/types/Manufacture.interface';
 
 @Component({
   selector: 'app-manufacture-edit',
@@ -10,25 +10,40 @@ import { Manufacture } from 'src/app/types/Manufacture.interface';
 })
 export class ManufactureEditComponent implements OnInit{
 
-  id!: string;
+  id: string;
 
-  servico!: Manufacture;
+  form!: FormGroup;
 
   constructor(
-    private manufactureService: ManufactureService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private servicesService: ManufactureService
+  ) {
+    this.id = this.route.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
+    this.form = this.formBuilder.group({
+      id: [''],
+      desc: [''],
+      amount: [0]
+    });
 
-    this.servico = this.manufactureService.getManufacture(Number(this.id) - 1);
-    console.log(this.servico);
+    this.getData();
+  }
 
+  getData() {
+    this.servicesService.findById(this.id).subscribe({
+      next: data => this.form.patchValue(data),
+      error: console.log
+    });
   }
 
   salvarServico(): void {
-
+    this.servicesService.update(this.form.value).subscribe({
+      next: () => this.router.navigate([`servico/${this.id}`]),
+      error: console.log
+    });
   }
 }

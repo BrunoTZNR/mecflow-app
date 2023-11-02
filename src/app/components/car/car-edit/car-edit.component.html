@@ -12,7 +12,7 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">editar carro</h2>
 
       <h4 class="title">dados do carro</h4>
@@ -20,46 +20,57 @@
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="placa">placa</label>
-          <input type="text" name="placa" placeholder="placa" value="{{ car.placa }}">
+          <input type="text" name="placa" placeholder="placa" formControlName="placa">
         </div>
 
         <div class="label-wrapper">
           <label for="fYear">ano de fabricação</label>
-          <input type="text" name="fYear" placeholder="ano de fabricação" value="{{ car.fYear }}">
+          <input type="text" name="fYear" placeholder="ano de fabricação" formControlName="fYear">
         </div>
 
         <div class="label-wrapper">
           <label for="mYear">ano do modelo</label>
-          <input type="text" name="mYear" placeholder="ano do modelo" value="{{ car.mYear }}">
+          <input type="text" name="mYear" placeholder="ano do modelo" formControlName="mYear">
         </div>
       </div>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="automaker">marca</label>
-          <input type="text" name="automaker" placeholder="fabricante" value="{{ car.automaker }}">
+          <input type="text" name="automaker" placeholder="fabricante" formControlName="automaker">
         </div>
 
         <div class="label-wrapper">
           <label for="model">modelo</label>
-          <input type="text" name="model" placeholder="modelo" value="{{ car.model }}">
+          <input type="text" name="model" placeholder="modelo" formControlName="model">
         </div>
 
         <div class="label-wrapper">
           <label for="color">cor</label>
-          <input type="text" name="color" placeholder="cor" value="{{ car.color }}">
+          <input type="text" name="color" placeholder="cor" formControlName="color">
         </div>
       </div>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="capacity">cilindradas</label>
-          <input type="text" name="capacity" placeholder="cilindradas" value="{{ car.capacity }}">
+          <input type="text" name="capacity" placeholder="cilindradas" formControlName="capacity">
         </div>
 
         <div class="label-wrapper">
           <label for="engine">quantidade de valvulas</label>
-          <input type="text" name="engine" placeholder="quantidade de valvulas" value="{{ car.engine }}">
+          <input type="text" name="engine" placeholder="quantidade de valvulas" formControlName="engine">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="fuel">combustivel</label>
+          <select class="input" name="fuel" id="fuel" formControlName="fuel">
+            <option value="gasolina">gasolina</option>
+            <option value="alcool">alcool</option>
+            <option value="flex">flex</option>
+            <option value="diesel">diesel</option>
+            <option value="eletrico">eletrico</option>
+          </select>
         </div>
       </div>
 
