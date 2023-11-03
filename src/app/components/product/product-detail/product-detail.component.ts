@@ -9,7 +9,7 @@ import { ProductService } from './../../../services/product.service';
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
 })
-export class ProductDetailComponent implements OnInit{
+export class ProductDetailComponent{
 
   id: string;
 
@@ -25,10 +25,6 @@ export class ProductDetailComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
 
     this.product$ = this.productService.findById(this.id);
-  }
-
-  ngOnInit(): void {
-    // console.log(this.product$)
   }
 
   editarProduto(): void {

@@ -12,7 +12,7 @@
   </header>
 
   <div class="client-wrapper">
-    <section>
+    <section *ngIf="employee$ | async as emp">
       <h2 class="title">detalhe do funcionário</h2>
 
       <h4 class="title">dados do funcionário</h4>
@@ -20,61 +20,79 @@
       <div class="name-wrapper">
         <div class="label-wrapper">
           <label for="fname">nome</label>
-          <p class="input" name="fname">{{ func.fname }}</p>
+          <p class="input" id="fname" name="fname">{{ emp.people.fName }}</p>
         </div>
 
         <div class="label-wrapper">
           <label for="lname">sobrenome</label>
-          <p class="input" name="lname">{{ func.lname }}</p>
+          <p class="input" id="lname" name="lname">{{ emp.people.fName }}</p>
         </div>
       </div>
 
       <div class="label-wrapper">
         <label for="comission">comissão</label>
-        <p class="input" name="comission">{{ func.comission }}</p>
+        <p class="input" id="comission" name="comission">{{ emp.comission }}</p>
       </div>
 
       <div class="label-wrapper">
         <label for="dtNasc">data de nascimento</label>
-        <p class="input" name="dtNasc">{{ func.dtNasc }}</p>
+        <p class="input" id="dtNasc" name="dtNasc">{{ emp.people.dtNasc ? emp.people.dtNasc : '-' }}</p>
       </div>
 
-      <h4 class="title">dados de contato</h4>
+      <h4 *ngIf="emp.people.contact" class="title">dados de contato</h4>
 
-      <div class="contact-wrapper">
+      <div *ngIf="emp.people.contact" class="contact-wrapper">
         <div class="label-wrapper">
           <label for="phone">telefone</label>
-          <p class="input" name="phone">{{ func.phone }}</p>
+          <p class="input" id="phone" name="phone">{{ emp.people.contact.phone ? emp.people.contact.phone : '-' }}</p>
         </div>
 
         <div class="label-wrapper">
           <label for="whatsapp">whatsapp</label>
-          <p class="input" name="whatsapp">{{ func.whatsapp }}</p>
+          <p class="input" id="whatsapp" name="whatsapp">{{ emp.people.contact.whatsapp ? emp.people.contact.whatsapp : '-' }}</p>
         </div>
 
         <div class="label-wrapper">
           <label for="email">email</label>
-          <p class="input" name="email">{{ func.email }}</p>
+          <p class="input" id="email" name="email">{{ emp.people.contact.email ? emp.people.contact.email : '-' }}</p>
         </div>
       </div>
 
-      <h4 class="title">dados de endereço</h4>
+      <h4 *ngIf="emp.people.address" class="title">dados de endereço</h4>
 
-      <div class="label-wrapper">
-        <label for="cep">cep</label>
-        <p class="input" name="cep">{{ func.cep }}</p>
+      <div *ngIf="emp.people.address" class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="cep">cep</label>
+          <p class="input" id="cep" name="cep">{{ emp.people.address.cep }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="number">numero</label>
+          <p class="input" id="number" name="number">{{ emp.people.address.number ? emp.people.address.number : '-' }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="street">rua</label>
+          <p class="input" id="street" name="street">{{ emp.people.address.street ? emp.people.address.street : '-' }}</p>
+        </div>
       </div>
 
-      <div class="label-wrapper">
-        <label for="rua">rua</label>
-        <p class="input" name="rua">{{ func.rua }}</p>
-      </div>
+      <div *ngIf="emp.people.address" class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="neighborhood">bairro</label>
+          <p class="input" id="neighborhood" name="neighborhood">{{ emp.people.address.neighborhood ? emp.people.address.neighborhood : '-' }}</p>
+        </div>
 
-      <div class="label-wrapper">
-        <label for="casa">casa</label>
-        <p class="input" name="casa">{{ func.casa }}</p>
-      </div>
+        <div class="label-wrapper">
+          <label for="state">estado</label>
+          <p class="input" id="state" name="state">{{ emp.people.address.state ? emp.people.address.state : '-' }}</p>
+        </div>
 
+        <div class="label-wrapper">
+          <label for="uf">uf</label>
+          <p class="input" id="uf" name="uf">{{ emp.people.address.uf ? emp.people.address.uf : '-' }}</p>
+        </div>
+      </div>
     </section>
   </div>
 </main>

@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from 'src/app/services/employee.service';
-import { ProductService } from 'src/app/services/product.service';
-import { Employee } from 'src/app/types/Employee.interface';
 
 @Component({
   selector: 'app-product-cadastrar-os',
@@ -10,15 +7,10 @@ import { Employee } from 'src/app/types/Employee.interface';
 })
 export class ProductCadastrarOsComponent implements OnInit{
 
-  employees!: Employee[];
-
-  constructor(
-    private productService: ProductService,
-    private employeeService: EmployeeService
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.employees = this.employeeService.getEmployees();
+
   }
 
   cadastrarProdutoOs(): void {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdvanceService } from 'src/app/services/advance.service';
-import { Advance } from 'src/app/types/Advance.interface';
 
 @Component({
   selector: 'app-advance-detail',
@@ -10,9 +9,7 @@ import { Advance } from 'src/app/types/Advance.interface';
 })
 export class AdvanceDetailComponent implements OnInit{
 
-  id!: number;
-
-  advance!: Advance;
+  id: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +21,7 @@ export class AdvanceDetailComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.advance = this.advanceService.getAdvance(Number(this.id) - 1);
-    // console.log(this.advance);
+
   }
 
   editarAdvance(): void {

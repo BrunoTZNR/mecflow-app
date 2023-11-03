@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EmployeeService } from 'src/app/services/employee.service';
-import { Employee } from 'src/app/types/Employee.interface';
 
 @Component({
   selector: 'app-payment-cadastrar',
@@ -10,19 +8,16 @@ import { Employee } from 'src/app/types/Employee.interface';
 })
 export class PaymentCadastrarComponent implements OnInit{
 
-  idOs!: number;
-
-  employees!: Employee[];
+  idOs: string;
 
   constructor(
-    private employeeService: EmployeeService,
     private route: ActivatedRoute
   ) {
-    this.idOs = Number(this.route.snapshot.params['id-os']);
+    this.idOs = this.route.snapshot.params['id-os'];
   }
 
   ngOnInit(): void {
-    this.employees = this.employeeService.getEmployees();
+
   }
 
   cadastrarPayment(): void {

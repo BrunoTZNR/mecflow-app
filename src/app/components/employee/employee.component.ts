@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { EmployeeService } from 'src/app/services/employee.service';
-import { Employee } from 'src/app/types/Employee.interface';
+import { Employee } from 'src/app/types/Employee.model';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.scss']
 })
-export class EmployeeComponent implements OnInit{
+export class EmployeeComponent{
 
-  funcionarios!: Employee[];
+  employees$: Observable<Employee[]>;
 
   constructor(
-    private employeeService: EmployeeService,
-    private router: Router
-  ) {}
-
-  ngOnInit(): void {
-    this.funcionarios = this.employeeService.getEmployees();
+    private router: Router,
+    private employeeService: EmployeeService
+  ) {
+    this.employees$ = this.employeeService.list();
   }
 
   detalheEmployee(id: any): void {

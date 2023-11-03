@@ -1,5 +1,4 @@
 import { Car } from "./Car.model";
-import { Client } from "./Client.interface";
 import { Payment } from "./Payment.interface";
 import { User } from "./User.interface";
 
@@ -13,7 +12,6 @@ export interface Os {
   totalDiscount: number,
   idStatus: number,
   status: string,
-  client: Client,
   car: Car,
   User: User,
   //products: Product[],

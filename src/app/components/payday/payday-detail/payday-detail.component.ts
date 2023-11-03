@@ -10,22 +10,18 @@ import { Payday } from 'src/app/types/Payday.interface';
 })
 export class PaydayDetailComponent implements OnInit{
 
-  id!: number;
-
-  payday!: Payday;
+  id: string;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private paydayService: PaydayService
+    private router: Router
   ) {
     //pega o id da url
     this.id = this.route.snapshot.params['id'];
   }
 
   ngOnInit(): void {
-    this.payday = this.paydayService.getPayday(Number(this.id) - 1);
-    // console.log(this.payday);
+
   }
 
   editarPayday(): void {

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from 'src/app/services/employee.service';
-import { Employee } from 'src/app/types/Employee.interface';
 
 @Component({
   selector: 'app-advance-cadastrar',
@@ -9,14 +7,10 @@ import { Employee } from 'src/app/types/Employee.interface';
 })
 export class AdvanceCadastrarComponent implements OnInit{
 
-  employees!: Employee[];
-
-  constructor(
-    private employeeService: EmployeeService
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.employees = this.employeeService.getEmployees();
+
   }
 
   cadastrarAdvance(): void {

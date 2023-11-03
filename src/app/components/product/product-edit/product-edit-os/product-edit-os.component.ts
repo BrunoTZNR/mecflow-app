@@ -1,11 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { EmployeeService } from 'src/app/services/employee.service';
-import { ManufactureService } from 'src/app/services/manufacture.service';
-import { OsService } from 'src/app/services/os.service';
-import { ProductService } from 'src/app/services/product.service';
-import { Employee } from 'src/app/types/Employee.interface';
-import { Os } from 'src/app/types/Os.interface';
 
 @Component({
   selector: 'app-product-edit-os',
@@ -14,28 +7,10 @@ import { Os } from 'src/app/types/Os.interface';
 })
 export class ProductEditOsComponent implements OnInit{
 
-  os!: Os;
-
-  employees!: Employee[];
-
-  selectedProd!: number;
-  selectedEmployee!: number;
-  qtdProds!: number;
-  totalAmount!: number;
-  discountAmount!: number;
-
-  constructor(
-    private employeeService: EmployeeService,
-    private osService: OsService,
-    private manufactureService: ManufactureService,
-    private productService: ProductService,
-    private route: ActivatedRoute
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
-    //this.os = this.osService.getOs(Number(this.route.snapshot.params['id-os']) - 1);
 
-    this.employees = this.employeeService.getEmployees();
   }
 
   salvarProdutoOs(): void {

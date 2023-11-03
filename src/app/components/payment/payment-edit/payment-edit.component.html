@@ -4,7 +4,7 @@
       <h1 class="title-mec">mecflow</h1>
 
       <div>
-        <a class="button" routerLink="/os/{{ idOs }}/editar">ordem de serviço</a>
+        <!-- <a class="button" routerLink="/os/{{ idOs }}/editar">ordem de serviço</a> -->
         <a class="button" routerLink="/home">home</a>
       </div>
 
@@ -20,45 +20,45 @@
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="dtPay">data do pagamento</label>
-          <input type="date" name="dtPay" id="dtPay" value="{{ os.payment[0].dtPay }}">
+          <!-- <input type="date" name="dtPay" id="dtPay" value="{{ os.payment[0].dtPay }}"> -->
         </div>
 
         <div class="label-wrapper">
           <label for="typePay">tipo</label>
-          <select class="input" name="typePay" id="typePay" [(ngModel)]="selectedType">
+          <!-- <select class="input" name="typePay" id="typePay" [(ngModel)]="selectedType">
             <option disabled selected></option>
             <option value="credito">crédito</option>
             <option value="debito">débito</option>
             <option value="pix">pix</option>
             <option value="dinherio">dinherio</option>
-          </select>
+          </select> -->
         </div>
 
         <div class="label-wrapper">
           <label for="status">status</label>
-          <select class="input" name="status" id="status" [(ngModel)]="selectedStatus">
+          <!-- <select class="input" name="status" id="status" [(ngModel)]="selectedStatus">
             <option disabled selected></option>
             <option value="pendente">pendente</option>
             <option value="pago">pago</option>
             <option value="cancelado">cancelado</option>
-          </select>
+          </select> -->
         </div>
       </div>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="amount">total do pagamento</label>
-          <input type="text" name="amount" id="amount" value="{{ os.payment[0].amount }}">
+          <!-- <input type="text" name="amount" id="amount" value="{{ os.payment[0].amount }}"> -->
         </div>
 
         <div class="label-wrapper">
           <label for="totalDiscount">total de desconto</label>
-          <input type="text" name="totalDiscount" id="totalDiscount" value="{{ os.payment[0].totalDiscount }}">
+          <!-- <input type="text" name="totalDiscount" id="totalDiscount" value="{{ os.payment[0].totalDiscount }}"> -->
         </div>
 
         <div class="label-wrapper">
           <label for="qtdParcelas">quantidade de parcelas</label>
-          <input type="text" name="qtdParcelas" id="qtdParcelas" value="{{ os.payment[0].qtdParcelas }}">
+          <!-- <input type="text" name="qtdParcelas" id="qtdParcelas" value="{{ os.payment[0].qtdParcelas }}"> -->
         </div>
       </div>
 

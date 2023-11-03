@@ -18,15 +18,15 @@
           <tr>
             <td>id</td>
             <td>nome</td>
-            <td>data de nascimento</td>
+            <td>taxa de comissão</td>
           </tr>
         </thead>
 
         <tbody>
-          <tr *ngFor="let func of funcionarios;" (click)="detalheEmployee(func.id)">
-            <td>{{ func.id }}</td>
-            <td>{{ func.fname + ' ' +  func.lname}}</td>
-            <td>{{ func.dtNasc }}</td>
+          <tr *ngFor="let emp of employees$ | async;" (click)="detalheEmployee(emp.id)">
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.people.fName + ' ' +  emp.people.lName}}</td>
+            <td>{{ emp.comission + '%' }}</td>
           </tr>
         </tbody>
       </table>

@@ -1,71 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Employee } from '../types/Employee.interface';
+import { Employee, EmployeeCreate } from '../types/Employee.model';
+import { first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
 
-  constructor() { }
+  private readonly API = 'api/v1/employees';
 
-  getEmployee(id: number): Employee {
-    return this.getEmployees()[id];
+  constructor(private http: HttpClient) { }
+
+  list() {
+    return this.http.get<Employee[]>(this.API);
   }
 
-  getEmployees(): Employee[] {
-    return [
-      {
-        id: 1,
-        comission: 50,
-        fname: 'Bruno',
-        lname: 'Silva',
-        dtNasc: '01/01/2003',
-        phone: '61123456789',
-        whatsapp: '61123456789',
-        email: 'admin@admin.com',
-        rua: 'aquela rua',
-        casa: 'naquela casa',
-        cep: '12345678'
-      },
-      {
-        id: 2,
-        comission: 100,
-        fname: 'Marco',
-        lname: 'Antonio',
-        dtNasc: '01/01/2003',
-        phone: '61123456789',
-        whatsapp: '61123456789',
-        email: 'admin@admin.com',
-        rua: 'aquela rua',
-        casa: 'naquela casa',
-        cep: '12345678'
-      },
-      {
-        id: 3,
-        comission: 100,
-        fname: 'Maria',
-        lname: 'Silva',
-        dtNasc: '01/01/2003',
-        phone: '61123456789',
-        whatsapp: '61123456789',
-        email: 'admin@admin.com',
-        rua: 'aquela rua',
-        casa: 'naquela casa',
-        cep: '12345678'
-      },
-      {
-        id: 4,
-        comission: 50,
-        fname: 'Sérgio',
-        lname: 'Henrique',
-        dtNasc: '01/01/2003',
-        phone: '61123456789',
-        whatsapp: '61123456789',
-        email: 'admin@admin.com',
-        rua: 'aquela rua',
-        casa: 'naquela casa',
-        cep: '12345678'
-      }
-    ]
+  findById(id: string) {
+    return this.http.get<Employee>(`${this.API}/${id}`).pipe(first())
+  }
+
+  save(record: EmployeeCreate) {
+    return this.http.post<Employee>(this.API, record).pipe(first());
+  }
+
+  update(record: Employee) {
+    return this.http.put<Employee>(`${this.API}/${record.id}`, record).pipe(first());
+  }
+
+  delete(id: string) {
+    return this.http.delete<void>(`${this.API}/${id}`).pipe(first());
   }
 }
