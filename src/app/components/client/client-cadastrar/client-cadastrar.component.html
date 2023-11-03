@@ -12,31 +12,31 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">cadastrar cliente</h2>
 
       <h4 class="title">dados pessoais</h4>
 
       <div class="name-wrapper">
         <div class="label-wrapper">
-          <label for="fname">nome</label>
-          <input type="text" name="fname">
+          <label for="fName">nome</label>
+          <input type="text" id="fName" name="fName" formControlName="fName">
         </div>
 
         <div class="label-wrapper">
-          <label for="lname">sobrenome</label>
-          <input type="text" name="lname">
+          <label for="lName">sobrenome</label>
+          <input type="text" id="lName" name="lName" formControlName="lName">
         </div>
       </div>
 
       <div class="label-wrapper">
         <label for="cpf">cpf</label>
-        <input type="text" name="cpf">
+        <input type="text" id="cpf" name="cpf" formControlName="cpf">
       </div>
 
       <div class="label-wrapper">
-        <label for="dt-nasc">data de nascimento</label>
-        <input type="date" name="dt-nasc">
+        <label for="dtNasc">data de nascimento</label>
+        <input type="date" id="dtNasc" name="dtNasc" formControlName="dtNasc">
       </div>
 
       <h4 class="title">dados de contato</h4>
@@ -44,35 +44,54 @@
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="phone">telefone</label>
-          <input type="text" name="phone" placeholder="telefone">
+          <input type="text" id="phone" name="phone" placeholder="telefone" formControlName="phone">
         </div>
 
         <div class="label-wrapper">
           <label for="whatsapp">whatsapp</label>
-          <input type="text" name="whatsapp" placeholder="whatsapp">
+          <input type="text" id="whatsapp" name="whatsapp" placeholder="whatsapp" formControlName="whatsapp">
         </div>
 
         <div class="label-wrapper">
           <label for="email">email</label>
-          <input type="email" name="email" placeholder="email">
+          <input type="email" id="email" name="email" placeholder="email" formControlName="email">
         </div>
       </div>
 
       <h4 class="title">dados de endereço</h4>
 
-      <div class="label-wrapper">
-        <label for="cep">cep</label>
-        <input type="text" name="cep">
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="cep">cep</label>
+          <input type="text" id="cep" name="cep" (keyup)="addViaCep()" formControlName="cep">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="number">numero</label>
+          <input type="text" id="number" name="number" formControlName="number">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="street">rua</label>
+          <input type="text" id="street" name="street" formControlName="street">
+        </div>
       </div>
 
-      <div class="label-wrapper">
-        <label for="rua">rua</label>
-        <input type="text" name="rua">
-      </div>
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="neighborhood">bairro</label>
+          <input type="text" id="neighborhood" name="neighborhood" formControlName="neighborhood">
+        </div>
 
-      <div class="label-wrapper">
-        <label for="casa">casa</label>
-        <input type="text" name="casa">
+        <div class="label-wrapper">
+          <label for="state">estado</label>
+          <input type="text" id="state" name="state" formControlName="state">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="uf">uf</label>
+          <input type="text" id="uf" name="uf" formControlName="uf">
+        </div>
       </div>
 
       <button class="button" (click)="cadastrarCliente()">cadastrar</button>

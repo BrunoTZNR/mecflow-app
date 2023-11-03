@@ -20,16 +20,16 @@
           <tr>
             <td>id</td>
             <td>nome</td>
-            <td>data de nascimento</td>
+            <td>telefone</td>
           </tr>
         </thead>
 
         <tbody>
-          <!-- <tr *ngFor="let cli of clients;" (click)="detalheClient(cli.id)">
+          <tr *ngFor="let cli of clients$ | async;" (click)="detalheClient(cli.id)">
             <td>{{ cli.id }}</td>
-            <td>{{ cli.fname + ' ' +  cli.lname}}</td>
-            <td>{{ cli.dtNasc }}</td>
-          </tr> -->
+            <td>{{ cli.people.fName + ' ' + cli.people.lName }}</td>
+            <td>{{ cli.people.contact?.phone ? cli.people.contact?.phone : '-' }}</td>
+          </tr>
         </tbody>
       </table>
     </div>

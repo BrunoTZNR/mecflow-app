@@ -6,6 +6,6 @@ export type People = {
   fName: String,
   lName?: String,
   dtNasc?: String,
-  contact?: Contact,
-  address?: Address
+  contact?: Contact | null,
+  address?: Address | null
 }
