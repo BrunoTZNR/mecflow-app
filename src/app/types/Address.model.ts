@@ -1,5 +1,5 @@
 export type Address = {
-  id: number,
+  id?: number,
   cep: string,
   number?: string,
   street?: string,
@@ -7,5 +7,3 @@ export type Address = {
   state?: string,
   uf?: string
 }
-
-export type AddressCreate = Omit<Address, 'id'>;

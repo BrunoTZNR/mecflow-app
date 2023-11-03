@@ -1,13 +1,9 @@
-export interface Employee {
+import { People } from "./People.model";
+
+export type Employee = {
   id: number,
   comission: number,
-  fname:string,
-  lname?: string,
-  dtNasc?: string
-  phone?: string,
-  whatsapp?: string,
-  email?: string,
-  rua?: string,
-  casa?: string,
-  cep?: string
+  people: People
 }
+
+export type EmployeeCreate = Omit<Employee, 'id'>;
