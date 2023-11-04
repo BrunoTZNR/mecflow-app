@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,35 +9,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-  users = {
-    email: 'admin@admin.com',
-    pass: 'admin123'
-  };
 
   error: string = '';
 
-  formGroup!: FormGroup;
+  form!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private userService: UserService
     ) {}
 
   ngOnInit(): void {
-    this.formGroup = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       email: '',
       pass: ''
     });
   }
 
   entrar(): void {
-    if (this.formGroup.value.email == this.users.email &&
-      this.formGroup.value.pass == this.users.pass) {
-      this.router.navigate(['home']);
-    } else {
-      this.error = 'Usuário invalido!';
+    this.userService.findByLogin(this.form.value.email)
+      .subscribe({
+        next: (data) => {
+          if(data.pass == this.form.value.pass) {
+            this.router.navigate(['home']);
+          } else {
+            this.error = "senha inválida!"
 
-      console.log(this.error);
-    }
+            console.log(this.error);
+          }
+        },
+        error: error => {
+          this.error = error.error;
+
+          console.log(this.error);
+        }
+      });
   }
 }

@@ -1,6 +1,6 @@
 import { Car } from "./Car.model";
 import { Payment } from "./Payment.interface";
-import { User } from "./User.interface";
+import { User } from "./User.model";
 
 
 export interface Os {

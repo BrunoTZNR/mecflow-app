@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
-import { User } from '../types/User.interface';
+import { User } from '../types/User.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  private readonly API = 'api/v1/users';
 
-  getUser(id: number): User {
-    return this.getAllUsers()[id];
-  }
+  constructor(private http: HttpClient) { }
 
-  getAllUsers(): User[] {
-    return [
-      {
-        id: 1,
-        email: 'admin@admin.com',
-        pass: 'admin123'
-      }
-    ]
+  //findByLogin
+  findByLogin(login: string) {
+    return this.http.get<User>(`${this.API}/${login}`);
   }
 }

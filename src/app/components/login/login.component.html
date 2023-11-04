@@ -1,14 +1,14 @@
 <main>
   <div class="login-container">
-    <form class="login-form" [formGroup]="formGroup">
+    <form class="login-form" [formGroup]="form">
       <div class="form-item user-wrapper">
         <label for="email">email</label>
-        <input type="email" name="email" formControlName="email">
+        <input type="email" id="email" name="email" formControlName="email">
       </div>
 
       <div class="form-item pass-wrapper">
         <label for="pass">senha</label>
-        <input type="password" name="pass" formControlName="pass">
+        <input type="password" id="pass" name="pass" formControlName="pass">
       </div>
 
       <button class="button" (click)="entrar()">entrar</button>
