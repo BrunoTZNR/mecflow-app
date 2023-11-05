@@ -44,6 +44,7 @@ import { PaymentCadastrarComponent } from './components/payment/payment-cadastra
 import { PaymentEditComponent } from './components/payment/payment-edit/payment-edit.component';
 import { ManufactureEditOsComponent } from './components/manufacture/manufacture-edit/manufacture-edit-os/manufacture-edit-os.component';
 import { ProductEditOsComponent } from './components/product/product-edit/product-edit-os/product-edit-os.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { ProductEditOsComponent } from './components/product/product-edit/produc
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

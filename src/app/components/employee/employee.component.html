@@ -19,6 +19,7 @@
             <td>id</td>
             <td>nome</td>
             <td>taxa de comissão</td>
+            <td>salário</td>
           </tr>
         </thead>
 
@@ -27,6 +28,7 @@
             <td>{{ emp.id }}</td>
             <td>{{ emp.people.fName + ' ' +  emp.people.lName}}</td>
             <td>{{ emp.comission + '%' }}</td>
+            <td>{{ emp.salary | currency: 'BRL':'symbol':'1.2-2' }}</td>
           </tr>
         </tbody>
       </table>
