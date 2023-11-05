@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AdvanceService } from 'src/app/services/advance.service';
+import { Advance } from 'src/app/types/Advance.model';
 
 @Component({
   selector: 'app-advance-detail',
   templateUrl: './advance-detail.component.html',
   styleUrls: ['./advance-detail.component.scss']
 })
-export class AdvanceDetailComponent implements OnInit{
+export class AdvanceDetailComponent{
 
   id: string;
+
+  advance$: Observable<Advance>
 
   constructor(
     private route: ActivatedRoute,
@@ -18,10 +22,8 @@ export class AdvanceDetailComponent implements OnInit{
   ) {
     //pega o id da url
     this.id = this.route.snapshot.params['id'];
-  }
 
-  ngOnInit(): void {
-
+    this.advance$ = this.advanceService.findById(this.id);
   }
 
   editarAdvance(): void {
@@ -29,6 +31,9 @@ export class AdvanceDetailComponent implements OnInit{
   }
 
   deletarAdvance(): void {
-
+    this.advanceService.remove(this.id).subscribe({
+      next: () => this.router.navigate(['adiantamento']),
+      error: error => console.log(error.error)
+    });
   }
 }

@@ -12,17 +12,19 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">editar adiantamento</h2>
 
       <h4 class="title">dados do funcionario</h4>
 
+      <input hidden type="text" name="id" id="id" formControlName="id">
+
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="employees">funcionário</label>
-          <!-- <select class="input" name="employees" id="employees" [value]="advance.id" ngSe>
-            <option *ngFor="let emp of employees" value="{{ emp.id }}">{{ emp.fname }}</option>
-          </select> -->
+          <select class="input" name="employees" id="employees" formControlName="employee_id">
+            <option *ngFor="let emp of employees$ | async" value="{{ emp.id }}">{{ emp.people.fName + ' ' + emp.people.lName }}</option>
+          </select>
         </div>
       </div>
 
@@ -30,13 +32,22 @@
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
-          <label for="date">data</label>
-          <!-- <input type="date" name="date" id="date" value="{{ advance.date | date: 'yyyy-MM-dd' }}"> -->
+          <label for="dt">data</label>
+          <input type="date" name="dt" id="dt" formControlName="dt">
         </div>
 
         <div class="label-wrapper">
           <label for="amount">valor</label>
-          <!-- <input type="text" name="amount" id="amount" placeholder="valor" value="{{ advance.amount }}"> -->
+          <input type="text" name="amount" id="amount" placeholder="valor" formControlName="amount">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="status">status</label>
+          <select class="input" name="status" id="status" formControlName="status">
+            <option value="concluido">concluido</option>
+            <option value="pendente" selected>pendente</option>
+            <option value="cancelado">cancelado</option>
+          </select>
         </div>
       </div>
 

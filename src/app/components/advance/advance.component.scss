@@ -60,7 +60,7 @@ main {
               padding: 6px 10px;
 
               &:nth-child(1) {
-                width: 15%;
+                width: 10%;
               }
 
               &:nth-child(2) {
@@ -72,6 +72,10 @@ main {
               }
 
               &:nth-child(3) {
+                width: 15%;
+              }
+
+              &:nth-child(4) {
                 width: 15%;
               }
             }

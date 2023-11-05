@@ -1,33 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Advance } from '../types/Advance.interface';
+import { Advance, AdvanceCreate } from '../types/Advance.model';
+import { HttpClient } from '@angular/common/http';
+import { Employee } from '../types/Employee.model';
+import { first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdvanceService {
 
-  constructor() { }
+  private readonly API = 'api/v1/advances';
 
-  getAdvance(id: number): Advance {
-    return this.getAdvances()[id];
+  constructor(private http: HttpClient) { }
+
+  list() {
+    return this.http.get<Advance[]>(this.API);
   }
 
-  getAdvances(): Advance[] {
-    return [
-      {
-        id: 1,
-        date: '12/10/2023',
-        amount: 100,
-        idEmployee: 3,
-        nameEmployee: 'Bruno'
-      },
-      {
-        id: 2,
-        date: '01/10/2023',
-        amount: 200,
-        idEmployee: 1,
-        nameEmployee: 'Bruno'
-      }
-    ]
+  listOfEmployee(id_emp: string) {
+    return this.http.get<Advance[]>(`${this.API}/employee/${id_emp}`);
+  }
+
+  findById(id: string) {
+    return this.http.get<Advance>(`${this.API}/${id}`);
+  }
+
+  save(record: AdvanceCreate) {
+    return this.http.post<Advance>(this.API, record).pipe(first());
+  }
+
+  update(record: Advance) {
+    return this.http.put<Advance>(`${this.API}/${record.id}`, record).pipe(first());
+  }
+
+  remove(id: string) {
+    return this.http.delete<void>(`${this.API}/${id}`).pipe(first());
   }
 }

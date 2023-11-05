@@ -12,15 +12,15 @@
   </header>
 
   <div class="client-wrapper">
-    <section>
+    <section *ngIf="advance$ | async as ad">
       <h2 class="title">detalhe do adiantamento</h2>
 
       <h4 class="title">dados do funcionario</h4>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
-          <label for="nameEmployee">Funcionario</label>
-          <!-- <p class="input" type="text" name="nameEmployee" id="nameEmployee">{{ advance.nameEmployee }}</p> -->
+          <span>Funcionario</span>
+          <p class="input" name="employee" id="employee">{{ ad.employee.people.fName + ' ' + ad.employee.people.lName}}</p>
         </div>
       </div>
 
@@ -28,13 +28,18 @@
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
-          <label for="date">data</label>
-          <!-- <p class="input" type="date" name="date" id="date">{{ advance.date }}</p> -->
+          <span>data</span>
+          <p class="input" name="dt" id="dt">{{ ad.dt }}</p>
         </div>
 
         <div class="label-wrapper">
-          <label for="amount">valor</label>
-          <!-- <p class="input" type="text" name="amount" id="amount" placeholder="valor">{{ advance.amount }}</p> -->
+          <span>valor</span>
+          <p class="input" name="amount" id="amount">{{ ad.amount }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <span>status</span>
+          <p class="input" name="status" id="status">{{ ad.status }}</p>
         </div>
       </div>
 

@@ -22,15 +22,17 @@
             <td>funcionario</td>
             <td>data</td>
             <td>valor</td>
+            <td>status</td>
           </tr>
         </thead>
 
         <tbody>
-          <tr *ngFor="let ad of advances;" (click)="detalheAdvance(ad.id)">
+          <tr *ngFor="let ad of advances$ | async;" (click)="detalheAdvance(ad.id)">
             <td>{{ ad.id }}</td>
-            <td>{{ ad.nameEmployee }}</td>
-            <td>{{ ad.date }}</td>
+            <td>{{ ad.employee.people.fName + ' ' + ad.employee.people.lName }}</td>
+            <td>{{ ad.dt }}</td>
             <td>{{ 'R$ ' + ad.amount }}</td>
+            <td>{{ ad.status | uppercase }}</td>
           </tr>
         </tbody>
       </table>

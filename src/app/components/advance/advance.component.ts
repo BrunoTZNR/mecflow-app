@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AdvanceService } from 'src/app/services/advance.service';
-import { Advance } from 'src/app/types/Advance.interface';
+import { Advance } from 'src/app/types/Advance.model';
 
 @Component({
   selector: 'app-advance',
@@ -10,15 +11,17 @@ import { Advance } from 'src/app/types/Advance.interface';
 })
 export class AdvanceComponent implements OnInit{
 
-  advances: Advance[] = [];
+  advances$: Observable<Advance[]>
 
   constructor(
     private advanceService: AdvanceService,
     private router: Router
-  ) {}
+  ) {
+    this.advances$ = this.advanceService.list();
+  }
 
   ngOnInit(): void {
-    this.advances = this.advanceService.getAdvances();
+
   }
 
   detalheAdvance(id: any): void {
