@@ -26,15 +26,23 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody *ngIf="advances$; else noContent">
           <tr *ngFor="let ad of advances$ | async;" (click)="detalheAdvance(ad.id)">
             <td>{{ ad.id }}</td>
             <td>{{ ad.employee.people.fName + ' ' + ad.employee.people.lName }}</td>
             <td>{{ ad.dt }}</td>
-            <td>{{ 'R$ ' + ad.amount }}</td>
+            <td>{{ ad.amount | currency: 'BRL':'symbol':'1.2-2' }}</td>
             <td>{{ ad.status | uppercase }}</td>
           </tr>
         </tbody>
+
+        <ng-template #noContent>
+          <tbody>
+            <tr>
+              <td colspan="5" style="cursor: default;">Nenhum adiantamento cadastrado!</td>
+            </tr>
+          </tbody>
+        </ng-template>
       </table>
     </div>
   </div>

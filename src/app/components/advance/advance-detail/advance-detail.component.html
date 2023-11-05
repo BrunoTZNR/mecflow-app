@@ -29,17 +29,17 @@
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <span>data</span>
-          <p class="input" name="dt" id="dt">{{ ad.dt }}</p>
+          <p class="input" name="dt" id="dt">{{ ad.dt | date: 'dd/MM/yyyy' }}</p>
         </div>
 
         <div class="label-wrapper">
           <span>valor</span>
-          <p class="input" name="amount" id="amount">{{ ad.amount }}</p>
+          <p class="input" name="amount" id="amount">{{ ad.amount | currency: 'BRL':'symbol':'1.2-2' }}</p>
         </div>
 
         <div class="label-wrapper">
           <span>status</span>
-          <p class="input" name="status" id="status">{{ ad.status }}</p>
+          <p class="input" name="status" id="status">{{ ad.status | uppercase }}</p>
         </div>
       </div>
 
