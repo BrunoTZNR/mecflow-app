@@ -19,31 +19,31 @@
 
       <div class="name-wrapper">
         <div class="label-wrapper">
-          <label for="fname">nome</label>
+          <span>nome</span>
           <p class="input" name="fname">{{ cli.people.fName }}</p>
         </div>
 
         <div class="label-wrapper">
-          <label for="lname">sobrenome</label>
-          <p class="input" name="lname">{{ cli.people.lName }}</p>
+          <span>sobrenome</span>
+          <p class="input" name="lname">{{ cli.people.lName ?  cli.people.lName : '-' }}</p>
         </div>
       </div>
 
       <div class="label-wrapper">
-        <label for="cpf">cpf</label>
+        <span>cpf</span>
         <p class="input" name="cpf">{{ cli.cpf ? cli.cpf : '-' }}</p>
       </div>
 
       <div class="label-wrapper">
-        <label for="dtNasc">data de nascimento</label>
-        <p class="input" name="dtNasc">{{ cli.people.dtNasc }}</p>
+        <span>data de nascimento</span>
+        <p class="input" name="dtNasc">{{ cli.people.dtNasc ? cli.people.dtNasc : '-' }}</p>
       </div>
 
       <h4 *ngIf="cli.people.contact" class="title">dados de contato</h4>
 
       <div *ngIf="cli.people.contact" class="contact-wrapper">
         <div class="label-wrapper">
-          <label for="phone">telefone</label>
+          <span>telefone</span>
           <p class="input" id="phone" name="phone">{{ cli.people.contact.phone ? cli.people.contact.phone : '-' }}</p>
         </div>
 
@@ -53,7 +53,7 @@
         </div>
 
         <div class="label-wrapper">
-          <label for="email">email</label>
+          <span>email</span>
           <p class="input" id="email" name="email">{{ cli.people.contact.email ? cli.people.contact.email : '-' }}</p>
         </div>
       </div>
@@ -62,34 +62,34 @@
 
       <div *ngIf="cli.people.address" class="contact-wrapper">
         <div class="label-wrapper">
-          <label for="cep">cep</label>
+          <span>cep</span>
           <p class="input" id="cep" name="cep">{{ cli.people.address.cep }}</p>
         </div>
 
         <div class="label-wrapper">
-          <label for="number">numero</label>
+          <span>numero</span>
           <p class="input" id="number" name="number">{{ cli.people.address.number ? cli.people.address.number : '-' }}</p>
         </div>
 
         <div class="label-wrapper">
-          <label for="street">rua</label>
+          <span>rua</span>
           <p class="input" id="street" name="street">{{ cli.people.address.street ? cli.people.address.street : '-' }}</p>
         </div>
       </div>
 
       <div *ngIf="cli.people.address" class="contact-wrapper">
         <div class="label-wrapper">
-          <label for="neighborhood">bairro</label>
+          <span>bairro</span>
           <p class="input" id="neighborhood" name="neighborhood">{{ cli.people.address.neighborhood ? cli.people.address.neighborhood : '-' }}</p>
         </div>
 
         <div class="label-wrapper">
-          <label for="state">estado</label>
+          <span>estado</span>
           <p class="input" id="state" name="state">{{ cli.people.address.state ? cli.people.address.state : '-' }}</p>
         </div>
 
         <div class="label-wrapper">
-          <label for="uf">uf</label>
+          <span>uf</span>
           <p class="input" id="uf" name="uf">{{ cli.people.address.uf ? cli.people.address.uf : '-' }}</p>
         </div>
       </div>

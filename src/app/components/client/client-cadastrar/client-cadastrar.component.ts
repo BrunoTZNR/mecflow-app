@@ -24,10 +24,10 @@ export class ClientCadastrarComponent implements OnInit{
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      cpf: ['01234567890'],
-      fName: ['Bruno'],
-      lName: ['silva'],
-      dtNasc: ['2003-01-01'],
+      cpf: [null],
+      fName: [null],
+      lName: [null],
+      dtNasc: [null],
       phone: [null],
       email: [null],
       whatsapp: [null],

@@ -27,7 +27,7 @@
         <tbody>
           <tr *ngFor="let cli of clients$ | async;" (click)="detalheClient(cli.id)">
             <td>{{ cli.id }}</td>
-            <td>{{ cli.people.fName + ' ' + cli.people.lName }}</td>
+            <td>{{ cli.people.fName }}</td>
             <td>{{ cli.people.contact?.phone ? cli.people.contact?.phone : '-' }}</td>
           </tr>
         </tbody>
