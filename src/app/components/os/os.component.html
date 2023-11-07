@@ -27,13 +27,16 @@
         </thead>
 
         <tbody>
-          <!-- <tr *ngFor="let os of oss;" (click)="detalheOs(os.id)">
+          <tr *ngFor="let os of os$ | async;" (click)="detalheOs(os.id)">
             <td>{{ os.car.placa }}</td>
-            <td>{{ os.client.fname + ' ' + os.client.lname }}</td>
-            <td>{{ os.dtCad | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ os.status }}</td>
-            <td>{{ os.totalAmount | currency: 'BRL'}}</td>
-          </tr> -->
+            <td>{{ os.client.people.fName }}</td>
+            <td>{{ os.dtIn | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ os.status | uppercase }}</td>
+            <td *ngIf="os.totalAmount; else zero">{{ os.totalAmount | currency: 'BRL':'symbol':'1.2-2' }}</td>
+            <ng-template #zero>
+              <td>{{ 0 | currency: 'BRL':'symbol':'1.2-2' }}</td>
+            </ng-template>
+          </tr>
         </tbody>
       </table>
     </div>

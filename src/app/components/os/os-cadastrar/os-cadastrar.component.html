@@ -12,31 +12,30 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">cadastrar ordem de serviço</h2>
 
       <h4 class="title">dados do cliente</h4>
 
       <div class="label-wrapper" >
         <label for="client">cliente</label>
-        <!-- <select class="input" name="client" id="client">
-          <option disabled selected></option>
-          <option *ngFor="let cli of clients" value="{{ cli.id }}">
-            {{ cli.fname + ' ' + cli.lname}}
+        <select class="input" name="client" id="client" formControlName="client_id">
+          <option *ngFor="let cli of clients$ | async" value="{{ cli.id }}">
+            {{ cli.people.fName }}
           </option>
-        </select> -->
+        </select>
       </div>
 
       <h4 class="title">dados do carro</h4>
 
       <div class="label-wrapper">
         <label for="car">carro</label>
-        <!-- <select class="input" name="car" id="car">
+        <select class="input" name="car" id="car" formControlName="car_id">
           <option disabled selected></option>
-          <option *ngFor="let car of cars" value="{{ car.id }}">
+          <option *ngFor="let car of cars$ | async" value="{{ car.placa }}">
             {{ car.placa + ' / ' + car.automaker + ' - ' + car.model}}
           </option>
-        </select> -->
+        </select>
       </div>
 
       <h4 class="title">dados da ordem de serviço</h4>
@@ -44,18 +43,17 @@
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="dtIn">data de entrada</label>
-          <input type="date" name="dtIn">
+          <input type="date" id="dtIn" name="dtIn" formControlName="dtIn">
         </div>
 
         <div class="label-wrapper">
           <label for="dtOut">data de saida</label>
-          <input type="date" name="dtOut">
+          <input type="date" id="dtOut" name="dtOut" formControlName="dtOut">
         </div>
 
         <div class="label-wrapper">
           <label for="status">status</label>
-          <select class="input" name="status" id="status">
-            <option disabled selected></option>
+          <select class="input" id="status" name="status" id="status" formControlName="status">
             <option value="pendente">pendente</option>
             <option value="pago">pago</option>
             <option value="cancelado">cancelado</option>
