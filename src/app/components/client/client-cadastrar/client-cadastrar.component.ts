@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
 import { ClientCreate } from 'src/app/types/Client.model';
 
@@ -15,11 +15,19 @@ export class ClientCadastrarComponent implements OnInit{
 
   form!: FormGroup;
 
+  routerlink!: string;
+
   constructor(
     private router: Router,
     private clientService: ClientService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
     ) {
+      if(this.route.snapshot.params['os'] === 'os') {
+        this.routerlink = 'os/cadastrar';
+      } else {
+        this.routerlink = 'cliente';
+      }
     }
 
   ngOnInit(): void {
@@ -119,7 +127,7 @@ export class ClientCadastrarComponent implements OnInit{
     console.log(client);
 
     this.clientService.save(client).subscribe({
-      next: () => this.router.navigate(['cliente']),
+      next: () => this.router.navigate([this.routerlink]),
       error: console.log
     })
   }

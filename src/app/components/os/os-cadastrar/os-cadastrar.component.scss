@@ -67,6 +67,23 @@ main {
       text-transform: uppercase;
     }
 
+    .select-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      width: 100%;
+      gap: .75rem;
+
+      a {
+        width: 30px;
+        height: 30px;
+      }
+
+      .label-wrapper {
+        flex-grow: 1;
+      }
+    }
+
     .contact-wrapper {
       display: flex;
       gap: 2rem;

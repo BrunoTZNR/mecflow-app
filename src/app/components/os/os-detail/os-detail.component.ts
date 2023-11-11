@@ -1,24 +1,28 @@
+import { OsResponse } from 'src/app/types/Os.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { OsService } from 'src/app/services/os.service';
 
 @Component({
   selector: 'app-os-detail',
   templateUrl: './os-detail.component.html',
   styleUrls: ['./os-detail.component.scss']
 })
-export class OsDetailComponent implements OnInit{
+export class OsDetailComponent{
 
   id: string;
 
+  os$: Observable<OsResponse>;
+
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private osService: OsService
   ) {
     this.id = this.route.snapshot.params['id'];
-  }
 
-  ngOnInit(): void {
-
+    this.os$ = this.osService.findById(this.id);
   }
 
   //serviços

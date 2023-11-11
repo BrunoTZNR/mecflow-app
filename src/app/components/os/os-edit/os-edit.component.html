@@ -12,31 +12,25 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">editar ordem de serviço</h2>
 
       <h4 class="title">dados do cliente</h4>
 
       <div class="label-wrapper">
         <label for="client">cliente</label>
-        <!-- <select class="input" name="client" id="client" [(ngModel)]="selectedCli">
-          <option disabled selected></option>
-          <option *ngFor="let cli of clients" value="{{ cli.id }}">
-            {{ cli.fname + ' ' + cli.lname}}
-          </option>
-        </select> -->
+        <select class="input" name="client" id="client" formControlName="client">
+          <option *ngFor="let cli of clients$ | async" value="{{ cli.id }}">{{ cli.people.fName }}</option>
+        </select>
       </div>
 
       <h4 class="title">dados do carro</h4>
 
       <div class="label-wrapper">
         <label for="car">carro</label>
-        <!-- <select class="input" name="car" id="car" [(ngModel)]="selectedCar">
-          <option disabled selected></option>
-          <option *ngFor="let car of cars" value="{{ car.id }}">
-            {{ car.placa + ' / ' + car.automaker + ' - ' + car.model}}
-          </option>
-        </select> -->
+        <select class="input" name="car" id="car" formControlName="car">
+          <option *ngFor="let car of cars$ | async" value="{{ car.placa }}">{{ car.placa + ' / ' + car.automaker + ' - ' + car.model}}</option>
+        </select>
       </div>
 
       <h4 class="title">dados da ordem de serviço</h4>
@@ -44,50 +38,65 @@
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="dtIn">data de entrada</label>
-          <!-- <input type="date" name="dtIn" value="{{ os.dtIn }}"> -->
+          <input type="date" name="dtIn" formControlName="dtIn">
         </div>
 
         <div class="label-wrapper">
           <label for="dtOut">data de saida</label>
-          <!-- <input type="date" name="dtOut" value="{{ os.dtOut }}"> -->
+          <input type="date" name="dtOut"  formControlName="dtOut">
         </div>
 
         <div class="label-wrapper">
           <label for="status">status</label>
-          <!-- <select class="input" name="status" id="status"  [(ngModel)]="selectedStatus">
-            <option disabled selected></option>
+          <select class="input" name="status" id="status" formControlName="status">
             <option value="pendente">pendente</option>
             <option value="pago">pago</option>
             <option value="cancelado">cancelado</option>
-          </select> -->
+          </select>
         </div>
       </div>
 
-      <div class="label-wrapper">
+      <div class="label-wrapper" *ngIf="osProducts$ | async as op">
         <label for="products">produtos</label>
-        <div class="input" name="products" id="products">
-          <!-- <p class="input" *ngFor="let osP of os.products; index as i">
-            {{ osP.desc }} - {{ osP.qtdProducts }} - {{ osP.totalAmount | currency: 'BRL'}}
+        <div class="input" name="products" id="products" *ngIf="op && op.length != 0">
+          <p class="input" *ngFor="let osP of op">
+            {{ osP.product.desc }} - {{ osP.quantity }} - {{ osP.amount * osP.quantity | currency: 'BRL':'symbol':'1.2-2' }}
 
             <span>
-              <button class="button" (click)="editarProdutoOs(i)">editar</button>
+              <button class="button" (click)="editarProdutoOs(osP.id_os, osP.product.id)">editar</button>
               <button class="button">deletar</button>
             </span>
-          </p> -->
+          </p>
+        </div>
+
+        <div class="input" name="products" id="products" *ngIf="op && op.length == 0">
+          <p class="input">
+            <span>
+              <button class="button" (click)="cadastrarProdutoOs()">cadastrar</button>
+            </span>
+          </p>
         </div>
       </div>
 
-      <div class="label-wrapper">
+      <div class="label-wrapper" *ngIf="osServices$ | async as oss">
         <label for="services">serviços</label>
-        <div class="input" name="services" id="services">
-          <!-- <p class="input" *ngFor="let osS of os.services; index as i">
-            {{ osS.desc }} - {{ osS.amount | currency: 'BRL'}}
+        <div class="input" name="services" id="services" *ngIf="oss && oss.length != 0">
+          <p class="input" *ngFor="let osS of oss">
+            {{ osS.service.desc }} - {{ osS.quantity }} - {{ osS.amount * osS.quantity | currency: 'BRL':'symbol':'1.2-2' }}
 
             <span>
-              <button class="button" (click)="editarServicoOs(i)">editar</button>
+              <button class="button" (click)="editarServicoOs(osS.id_os, osS.service.id)">editar</button>
               <button class="button">deletar</button>
             </span>
-          </p> -->
+          </p>
+        </div>
+
+        <div class="input" name="services" id="services" *ngIf="oss && oss.length == 0">
+          <p class="input">
+            <span>
+              <button class="button" (click)="cadastrarServicoOs()">cadastrar</button>
+            </span>
+          </p>
         </div>
       </div>
 

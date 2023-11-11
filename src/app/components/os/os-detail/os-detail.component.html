@@ -12,14 +12,14 @@
   </header>
 
   <div class="client-wrapper">
-    <section>
+    <section *ngIf="os$ | async as os">
       <h2 class="title">detalhe da ordem de serviço</h2>
 
       <h4 class="title">dados do cliente</h4>
 
-      <!-- <div class="label-wrapper" >
+      <div class="label-wrapper" >
         <label for="client">cliente</label>
-        <p class="input" name="client" id="client">{{ os.client.fname + ' ' + os.client.lname }}</p>
+        <p class="input" name="client" id="client">{{ os.client.people.fName }}</p>
       </div>
 
       <h4 class="title">dados do carro</h4>
@@ -46,27 +46,25 @@
           <label for="status">status</label>
           <p class="input" name="status" id="status">{{ os.status }}</p>
         </div>
-      </div> -->
+      </div>
 
       <div class="contact-wrapper">
-        <div class="label-wrapper">
+        <div class="label-wrapper" *ngIf="os.osProducts && os.osProducts.length != 0">
           <label for="products">produtos</label>
           <div class="input" name="products" id="products">
-            <!-- <p class="input" *ngFor="let osP of os.products" (click)="detalheProdutoOs()">
-              {{ osP.desc }} - {{ osP.qtdProducts }} - {{ osP.totalAmount | currency: 'BRL'}}
-            </p> -->
+            <p class="input" *ngFor="let osP of os.osProducts" (click)="detalheProdutoOs()">
+              {{ osP.product.desc }} - {{ osP.quantity }} - {{ osP.amount * osP.quantity | currency: 'BRL':'symbol':'1.2-2' }}
+            </p>
           </div>
-          <button class="button" (click)="cadastrarProdutoOs()">adicionar produto</button>
         </div>
 
-        <div class="label-wrapper">
+        <div class="label-wrapper" *ngIf="os.osServices && os.osServices.length != 0">
           <label for="services">serviços</label>
           <div class="input" name="services" id="services">
-            <!-- <p class="input" *ngFor="let osS of os.services" (click)="detalheServicoOs()">
-              {{ osS.desc }} - {{ osS.amount | currency: 'BRL'}}
-            </p> -->
+            <p class="input" *ngFor="let osS of os.osServices" (click)="detalheServicoOs()">
+              {{ osS.service.desc }} - {{ osS.amount * osS.quantity | currency: 'BRL':'symbol':'1.2-2' }}
+            </p>
           </div>
-          <button class="button" (click)="cadastrarServicoOs()">adicionar serviço</button>
         </div>
 
         <div class="label-wrapper">
@@ -76,7 +74,6 @@
               {{ osC.typePay }} - {{ osC.amount | currency: 'BRL'}} - {{ osC.dtPay | date: 'dd/MM/yyyy' }}
             </p> -->
           </div>
-          <button class="button" (click)="cadastrarPagamentoOs()">adicionar pagamento</button>
         </div>
       </div>
 
