@@ -1,5 +1,7 @@
 import { Car } from "./Car.model"
 import { Client } from "./Client.model"
+import { OsProductsResponse } from "./OsProducts.model"
+import { OsServicesResponse } from "./OsServices.model"
 
 export type OsRequest = {
   id?: number,
@@ -20,5 +22,7 @@ export type OsResponse = {
   totalDiscount: number,
   status: string,
   client: Client,
-  car: Car
+  car: Car,
+  osProducts?: OsProductsResponse[],
+  osServices?: OsServicesResponse[]
 }
