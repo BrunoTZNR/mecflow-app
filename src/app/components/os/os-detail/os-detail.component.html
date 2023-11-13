@@ -49,10 +49,22 @@
       </div>
 
       <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="totalAmount">valor total</label>
+          <p class="input" name="totalAmount" id="totalAmount">{{ os.totalAmount ? (os.totalAmount | currency: 'BRL':'symbol':'1.2-2') : '-' }}</p>
+        </div>
+
+        <div class="label-wrapper">
+          <label for="totalDiscount">disconto total</label>
+          <p class="input" name="totalDiscount" id="totalDiscount">{{ os.totalDiscount ? (os.totalDiscount | currency: 'BRL':'symbol':'1.2-2') : '-' }}</p>
+        </div>
+      </div>
+
+      <div class="contact-wrapper">
         <div class="label-wrapper" *ngIf="os.osProducts && os.osProducts.length != 0">
           <label for="products">produtos</label>
           <div class="input" name="products" id="products">
-            <p class="input" *ngFor="let osP of os.osProducts" (click)="detalheProdutoOs()">
+            <p class="input" *ngFor="let osP of os.osProducts">
               {{ osP.product.desc }} - {{ osP.quantity }} - {{ osP.amount * osP.quantity | currency: 'BRL':'symbol':'1.2-2' }}
             </p>
           </div>
@@ -61,18 +73,18 @@
         <div class="label-wrapper" *ngIf="os.osServices && os.osServices.length != 0">
           <label for="services">serviços</label>
           <div class="input" name="services" id="services">
-            <p class="input" *ngFor="let osS of os.osServices" (click)="detalheServicoOs()">
+            <p class="input" *ngFor="let osS of os.osServices">
               {{ osS.service.desc }} - {{ osS.amount * osS.quantity | currency: 'BRL':'symbol':'1.2-2' }}
             </p>
           </div>
         </div>
 
-        <div class="label-wrapper">
+        <div class="label-wrapper" *ngIf="os.payment && os.payment.length != 0">
           <label for="payment">pagamentos</label>
           <div class="input" name="payment" id="payment">
-            <!-- <p class="input" *ngFor="let osC of os.payment" (click)="detalhePagamentoOs()">
-              {{ osC.typePay }} - {{ osC.amount | currency: 'BRL'}} - {{ osC.dtPay | date: 'dd/MM/yyyy' }}
-            </p> -->
+            <p class="input" *ngFor="let pay of os.payment">
+              {{ pay.typePay }} - {{ pay.amount | currency: 'BRL':'symbol':'1.2-2' }} - {{ pay.dt | date: 'dd/MM/yyyy' }}
+            </p>
           </div>
         </div>
       </div>

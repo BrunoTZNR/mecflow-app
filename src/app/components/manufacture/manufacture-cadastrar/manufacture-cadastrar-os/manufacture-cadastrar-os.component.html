@@ -12,33 +12,45 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">cadastrar serviço</h2>
 
       <h4 class="title">dados do serviço</h4>
 
-      <!-- <div class="contact-wrapper">
+      <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="employee">funcionario</label>
-          <select class="input" name="employee" id="employee">
-            <option selected disabled></option>
-            <option *ngFor="let emp of employees" value="{{ emp.id }}">{{ emp.fname + ' - ' + emp.lname }}</option>
+          <select class="input" name="employee" id="employee" formControlName="employee_id">
+            <option *ngFor="let emp of employees$ | async" value="{{ emp.id }}">{{ emp.people.fName + ' - ' + emp.people.lName }}</option>
           </select>
         </div>
 
         <div class="label-wrapper">
           <label for="services">serviço</label>
-          <select class="input" name="services" id="services">
-            <option selected disabled></option>
-            <option *ngFor="let sv of services" value="{{ sv.id }}">{{ sv.desc + ' - ' + sv.amount }}</option>
+          <select class="input" name="services" id="services" formControlName="id_services" (change)="addServicePrice()">
+            <option *ngFor="let sv of services$ | async" value="{{ sv.id }}">{{ sv.desc + ' - ' + sv.amount }}</option>
           </select>
         </div>
       </div>
 
-      <div class="label-wrapper">
-        <label for="discountAmount">total de disconto</label>
-        <input type="text" name="discountAmount">
-      </div> -->
+      <div class="contact-wrapper">
+        <div class="label-wrapper">
+          <label for="discount">disconto</label>
+          <input type="text" name="discount" id="discount" formControlName="discount">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="amount">preço</label>
+          <input type="text" name="amount" id="amount" formControlName="amount">
+        </div>
+
+        <div class="label-wrapper">
+          <label for="quantity">quantidade</label>
+          <input type="text" name="quantity" id="quantity" formControlName="quantity">
+        </div>
+      </div>
+
+
 
       <button class="button" (click)="cadastrarServicoOs()">cadastrar</button>
     </form>

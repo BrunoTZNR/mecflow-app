@@ -78,7 +78,6 @@ const routes: Routes = [
   { path: 'pagamento/:id/editar', component: PaydayEditComponent },
   { path: 'pagamento-os', component: PaymentComponent },
   { path: 'pagamento-os/cadastrar/:id-os', component: PaymentCadastrarComponent },
-  /*{ path: 'pagamento-os/:id', component: PaydayDetailComponent },*/
   { path: 'pagamento-os/:id/editar/:id-os', component: PaymentEditComponent },
   { path: 'os', component: OsComponent },
   { path: 'os/cadastrar', component: OsCadastrarComponent },

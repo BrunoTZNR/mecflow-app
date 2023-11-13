@@ -95,6 +95,16 @@ input, .input {
   padding: 6px 10px;
   color: var(--dark-2);
   font-size: inherit;
+
+  span {
+    .all-input {
+      width: 100%;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
 }
 
 button {

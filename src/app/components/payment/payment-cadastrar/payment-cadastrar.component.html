@@ -4,7 +4,7 @@
       <h1 class="title-mec">mecflow</h1>
 
       <div>
-        <a class="button" routerLink="/os/{{ idOs }}">ordem de serviço</a>
+        <a class="button" routerLink="/os/{{ id }}">ordem de serviço</a>
         <a class="button" routerLink="/home">home</a>
       </div>
 
@@ -12,20 +12,20 @@
   </header>
 
   <div class="client-wrapper">
-    <form>
+    <form [formGroup]="form">
       <h2 class="title">cadastrar pagamento</h2>
 
       <h4 class="title">dados do pagamento</h4>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
-          <label for="dtPay">data do pagamento</label>
-          <input type="date" name="dtPay" id="dtPay">
+          <label for="dt">data do pagamento</label>
+          <input type="date" name="dt" id="dt" formControlName="dt">
         </div>
 
         <div class="label-wrapper">
           <label for="typePay">tipo</label>
-          <select class="input" name="typePay" id="typePay">
+          <select class="input" name="typePay" id="typePay" formControlName="typePay">
             <option disabled selected></option>
             <option value="credito">crédito</option>
             <option value="debito">débito</option>
@@ -33,32 +33,17 @@
             <option value="dinherio">dinherio</option>
           </select>
         </div>
-
-        <div class="label-wrapper">
-          <label for="status">status</label>
-          <select class="input" name="status" id="status">
-            <option disabled selected></option>
-            <option value="pendente">pendente</option>
-            <option value="pago">pago</option>
-            <option value="cancelado">cancelado</option>
-          </select>
-        </div>
       </div>
 
       <div class="contact-wrapper">
         <div class="label-wrapper">
           <label for="amount">total do pagamento</label>
-          <input type="text" name="amount" id="amount">
+          <input type="text" name="amount" id="amount" formControlName="amount">
         </div>
 
         <div class="label-wrapper">
-          <label for="totalDiscount">total de desconto</label>
-          <input type="text" name="totalDiscount" id="totalDiscount">
-        </div>
-
-        <div class="label-wrapper">
-          <label for="qtdParcelas">quantidade de parcelas</label>
-          <input type="text" name="qtdParcelas" id="qtdParcelas">
+          <label for="installments">quantidade de parcelas</label>
+          <input type="text" name="installments" id="installments" formControlName="installments">
         </div>
       </div>
 

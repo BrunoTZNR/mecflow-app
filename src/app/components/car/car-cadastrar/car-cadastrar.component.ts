@@ -22,8 +22,10 @@ export class CarCadastrarComponent implements OnInit{
   ) {
     if(this.route.snapshot.params['os'] === 'os') {
       this.routerlink = 'os/cadastrar';
+      console.log('cadastro os')
     } else {
-      this.routerlink = 'car';
+      this.routerlink = 'carro';
+      console.log('cadastro carro')
     }
   }
 

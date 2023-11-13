@@ -37,7 +37,7 @@
 
         <div class="label-wrapper">
           <span>salário</span>
-          <p class="input" id="salary" name="salary">{{ emp.salary | currency: 'BRL':'symbol':'1.2-2' }}</p>
+          <p class="input" id="salary" name="salary">{{ emp.salary ? (emp.salary | currency: 'BRL':'symbol':'1.2-2') : '-' }}</p>
         </div>
       </div>
 

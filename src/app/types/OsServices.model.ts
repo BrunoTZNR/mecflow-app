@@ -11,7 +11,7 @@ export type OsServicesResponse = {
 
 export type OsServicesRequest = {
   id_os: number,
-  services_id: number,
+  id_services: number,
   amount: number,
   quantity: number,
   discount: number,

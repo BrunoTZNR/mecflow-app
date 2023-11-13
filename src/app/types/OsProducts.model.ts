@@ -10,8 +10,8 @@ export type OsProductsResponse = {
 }
 
 export type OsProductsRequest = {
-  id: number,
-  product_id: number,
+  id_os: number,
+  id_product: number,
   amount: number,
   quantity: number,
   discount: number,

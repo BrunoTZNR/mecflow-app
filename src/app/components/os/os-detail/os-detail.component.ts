@@ -29,10 +29,6 @@ export class OsDetailComponent{
   cadastrarServicoOs(): void {
     this.router.navigate(['servico/cadastrar/' + this.id])
   }
-
-  detalheServicoOs(): void {
-
-  }
   //---------------------------------
 
   //produto
@@ -40,18 +36,11 @@ export class OsDetailComponent{
     this.router.navigate(['produto/cadastrar/' + this.id])
   }
 
-  detalheProdutoOs(): void {
-
-  }
-
   //pagamento
   cadastrarPagamentoOs(): void {
     this.router.navigate(['pagamento-os/cadastrar/' + this.id])
   }
 
-  detalhePagamentoOs(): void {
-
-  }
   //---------------------------------
 
   editarOs(): void {
@@ -59,6 +48,9 @@ export class OsDetailComponent{
   }
 
   deletarOs(): void {
-
+    this.osService.remove(this.id).subscribe({
+      next: () => this.router.navigate(['os']),
+      error: e => console.log(e.error)
+    })
   }
 }
